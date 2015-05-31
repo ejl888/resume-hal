@@ -6,5 +6,7 @@ dependencies {
     compile project(":resume-repository")
     compile project(":resume-service")
 //    compile project(":resume-repository")
-    compile "javax.servlet:javax.servlet-api:3.0.1"
+    compile 'javax.servlet:javax.servlet-api:3.0.1',
+            'mysql:mysql-connector-java:5.1.18',
+            'org.springframework.hateoas:spring-hateoas:0.17.0.RELEASE'
 }

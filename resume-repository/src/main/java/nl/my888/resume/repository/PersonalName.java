@@ -1,4 +1,4 @@
-package nl.my888.resume.entities;
+package nl.my888.resume.repository;
 
 import javax.persistence.Embeddable;
 

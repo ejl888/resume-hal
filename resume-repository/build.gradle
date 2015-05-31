@@ -3,7 +3,9 @@ apply plugin: 'java'
 
 dependencies {
     compile 'org.springframework.data:spring-data-jpa:1.8.0.RELEASE',
-            'org.hibernate:hibernate-core:4.0.1.Final'
+            'org.hibernate:hibernate-core:4.0.1.Final',
+            'org.hibernate:hibernate-entitymanager:4.0.0.Final'
+            'joda-time:joda-time:2.3'
 
 }
 
