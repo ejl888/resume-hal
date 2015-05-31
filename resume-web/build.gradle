@@ -1,0 +1,8 @@
+
+apply plugin: "war"
+
+
+dependencies {
+//    compile project(":utils")
+    compile "javax.servlet:javax.servlet-api:3.0.1"
+}
