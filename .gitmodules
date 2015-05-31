@@ -1,0 +1,3 @@
+[submodule "hal-resource-matcher"]
+	path = hal-resource-matcher
+	url = https://github.com/ejl888/hal-result-matcher.git
