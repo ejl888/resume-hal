@@ -1,3 +1,6 @@
 
 
-include ":resume-web"
+include ':resume-web'
+include ':resume-service'
+include 'resume-repository'
+

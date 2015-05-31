@@ -3,6 +3,8 @@ apply plugin: "war"
 
 
 dependencies {
-//    compile project(":utils")
+    compile project(":resume-repository")
+    compile project(":resume-service")
+//    compile project(":resume-repository")
     compile "javax.servlet:javax.servlet-api:3.0.1"
 }
