@@ -1,4 +1,10 @@
 
 apply plugin: 'java'
 
+dependencies {
+    compile 'org.springframework.data:spring-data-jpa:1.8.0.RELEASE',
+            'org.hibernate:hibernate-core:4.0.1.Final'
+
+}
+
 
