@@ -1,3 +1,6 @@
 [submodule "hal-resource-matcher"]
 	path = hal-resource-matcher
 	url = https://github.com/ejl888/hal-result-matcher.git
+[submodule "spring-hateoas-extended"]
+	path = spring-hateoas-extended
+	url = https://github.com/ejl888/spring-hateoas-extended.git
