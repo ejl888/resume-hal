@@ -27,16 +27,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @EnableHypermediaSupport(type = EnableHypermediaSupport.HypermediaType.HAL)
 public class WebAppConfig extends WebMvcConfigurerAdapter {
 
-//    @Resource
-//    private Environment environment;
-
     public static final String RELATION_PREFIX = "resume888";
-//    public static final URI COLLECTION_PROFILE_URI = toProfileUri("collectie");
 
     private final CurieProvider curieProvider = new DefaultCurieProvider(
             RELATION_PREFIX,
             new UriTemplate("http://www.ilent.nl/rels/{rel}"));
-
 
     @Bean
     public DataSource dataSource() {
