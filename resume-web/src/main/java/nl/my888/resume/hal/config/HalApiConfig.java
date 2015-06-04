@@ -6,6 +6,8 @@ import java.util.Properties;
 import javax.sql.DataSource;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import nl.my888.springframework.hateoas.configuration.HalHandlerInstantiator;
+import nl.my888.springframework.hateoas.resource.EmbeddedResourceSupport;
 import org.hibernate.ejb.HibernatePersistence;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -56,7 +58,7 @@ public class HalApiConfig extends WebMvcConfigurerAdapter {
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         halObjectMapper.registerModule(new Jackson2HalModule());
-        halObjectMapper.setHandlerInstantiator(new Jackson2HalModule.HalHandlerInstantiator(relProvider, CURIE_PROVIDER));
+        halObjectMapper.setHandlerInstantiator(new HalHandlerInstantiator(relProvider, CURIE_PROVIDER));
 
         MappingJackson2HttpMessageConverter halConverter = new TypeConstrainedMappingJackson2HttpMessageConverter(
                 ResourceSupport.class);
@@ -67,7 +69,7 @@ public class HalApiConfig extends WebMvcConfigurerAdapter {
         converters.add(new MappingJackson2HttpMessageConverter());
 
         // XXX: dirty hack to register curieProvider for EmbbedResourceSupport
-        //EmbeddedResourceSupport.setCurieProvider(curieProvider);
+        EmbeddedResourceSupport.setCurieProvider(CURIE_PROVIDER);
     }
 
 

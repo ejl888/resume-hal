@@ -8,11 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/**
- * Created by ejl on 03/06/15.
- */
 @Controller
-@RequestMapping("")
+@RequestMapping("/root")
 public class RootResourceController {
 
     @Autowired

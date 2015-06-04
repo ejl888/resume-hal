@@ -14,8 +14,11 @@ dependencies {
     compile 'org.springframework.hateoas:spring-hateoas:0.17.0.RELEASE',
             'org.springframework.plugin:spring-plugin-core:1.2.0.RELEASE',
             'com.jayway.jsonpath:json-path:0.9.1',
-            'com.fasterxml.jackson.core:jackson-databind:2.4.1'
+            'com.fasterxml.jackson.core:jackson-databind:2.3.3'
 
+    compile ':spring-hateoas-extended:0.1.0-SNAPSHOT'
 
     compile 'com.thetransactioncompany:cors-filter:2.2.1'
+
+    testCompile ':hal-resource-matcher:0.1.0-SNAPSHOT'
 }

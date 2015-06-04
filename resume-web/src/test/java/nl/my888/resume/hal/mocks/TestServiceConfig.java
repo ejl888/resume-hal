@@ -17,7 +17,8 @@ public class TestServiceConfig {
 
     @Bean
     public CustomScopeConfigurer customScopeConfigurer() {
-        // maak de scope's aan zie http://stackoverflow.com/questions/2411343/request-scoped-beans-in-spring-testing
+        // create the request and session scope,
+        // see http://stackoverflow.com/questions/2411343/request-scoped-beans-in-spring-testing
         final CustomScopeConfigurer result = new CustomScopeConfigurer();
 
         final HashMap<String, Object> scopes = new HashMap<>();

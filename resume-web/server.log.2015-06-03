@@ -1,0 +1,231 @@
+2015-06-03 21:35:16,245 INFO  [org.springframework.web.context.support.GenericWebApplicationContext] Refreshing org.springframework.web.context.support.GenericWebApplicationContext@3249256e: startup date [Wed Jun 03 21:35:16 CEST 2015]; root of context hierarchy
+2015-06-03 21:37:58,405 INFO  [org.springframework.web.context.support.GenericWebApplicationContext] Refreshing org.springframework.web.context.support.GenericWebApplicationContext@d15b7bf: startup date [Wed Jun 03 21:37:58 CEST 2015]; root of context hierarchy
+2015-06-03 21:37:58,732 WARN  [org.springframework.context.annotation.ConfigurationClassEnhancer] @Bean method TestServiceConfig.customScopeConfigurer is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details
+2015-06-03 21:37:58,884 INFO  [org.springframework.jdbc.datasource.DriverManagerDataSource] Loaded JDBC driver: com.mysql.jdbc.Driver
+2015-06-03 21:37:58,915 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Building JPA container EntityManagerFactory for persistence unit 'default'
+2015-06-03 21:37:59,012 INFO  [org.hibernate.annotations.common.Version] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-06-03 21:37:59,016 INFO  [org.hibernate.Version] HHH000412: Hibernate Core {4.0.1.Final}
+2015-06-03 21:37:59,017 INFO  [org.hibernate.cfg.Environment] HHH000206: hibernate.properties not found
+2015-06-03 21:37:59,018 INFO  [org.hibernate.cfg.Environment] HHH000021: Bytecode provider name : javassist
+2015-06-03 21:37:59,034 INFO  [org.hibernate.ejb.Ejb3Configuration] HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2015-06-03 21:37:59,182 INFO  [org.hibernate.service.jdbc.connections.internal.ConnectionProviderInitiator] HHH000130: Instantiating explicit connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+2015-06-03 21:37:59,429 INFO  [org.hibernate.dialect.Dialect] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-03 21:37:59,444 INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator] HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-06-03 21:37:59,446 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] HHH000397: Using ASTQueryTranslatorFactory
+2015-06-03 21:37:59,562 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000228: Running hbm2ddl schema update
+2015-06-03 21:37:59,562 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000102: Fetching database metadata
+2015-06-03 21:37:59,574 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000396: Updating schema
+2015-06-03 21:37:59,576 INFO  [java.sql.DatabaseMetaData] HHH000262: Table not found: Person
+2015-06-03 21:37:59,577 INFO  [java.sql.DatabaseMetaData] HHH000262: Table not found: Person
+2015-06-03 21:37:59,620 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000232: Schema update complete
+2015-06-03 21:37:59,747 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] Mapped "{[/],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.http.ResponseEntity<nl.my888.resume.hal.resources.root.RootResource> nl.my888.resume.hal.resources.root.RootResourceController.get()
+2015-06-03 21:38:00,009 INFO  [org.springframework.mock.web.MockServletContext] Initializing Spring FrameworkServlet ''
+2015-06-03 21:38:00,009 INFO  [org.springframework.test.web.servlet.TestDispatcherServlet] FrameworkServlet '': initialization started
+2015-06-03 21:38:00,029 INFO  [org.springframework.test.web.servlet.TestDispatcherServlet] FrameworkServlet '': initialization completed in 20 ms
+2015-06-03 21:38:00,072 INFO  [org.springframework.web.context.support.GenericWebApplicationContext] Closing org.springframework.web.context.support.GenericWebApplicationContext@d15b7bf: startup date [Wed Jun 03 21:37:58 CEST 2015]; root of context hierarchy
+2015-06-03 21:38:00,080 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'default'
+2015-06-03 21:40:36,242 INFO  [org.springframework.web.context.support.GenericWebApplicationContext] Refreshing org.springframework.web.context.support.GenericWebApplicationContext@51fe358a: startup date [Wed Jun 03 21:40:36 CEST 2015]; root of context hierarchy
+2015-06-03 21:40:36,581 WARN  [org.springframework.context.annotation.ConfigurationClassEnhancer] @Bean method TestServiceConfig.customScopeConfigurer is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details
+2015-06-03 21:40:36,731 INFO  [org.springframework.jdbc.datasource.DriverManagerDataSource] Loaded JDBC driver: com.mysql.jdbc.Driver
+2015-06-03 21:40:36,760 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Building JPA container EntityManagerFactory for persistence unit 'default'
+2015-06-03 21:40:36,855 INFO  [org.hibernate.annotations.common.Version] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-06-03 21:40:36,860 INFO  [org.hibernate.Version] HHH000412: Hibernate Core {4.0.1.Final}
+2015-06-03 21:40:36,861 INFO  [org.hibernate.cfg.Environment] HHH000206: hibernate.properties not found
+2015-06-03 21:40:36,862 INFO  [org.hibernate.cfg.Environment] HHH000021: Bytecode provider name : javassist
+2015-06-03 21:40:36,878 INFO  [org.hibernate.ejb.Ejb3Configuration] HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2015-06-03 21:40:37,028 INFO  [org.hibernate.service.jdbc.connections.internal.ConnectionProviderInitiator] HHH000130: Instantiating explicit connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+2015-06-03 21:40:37,192 INFO  [org.hibernate.dialect.Dialect] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-03 21:40:37,207 INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator] HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-06-03 21:40:37,210 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] HHH000397: Using ASTQueryTranslatorFactory
+2015-06-03 21:40:37,332 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000228: Running hbm2ddl schema update
+2015-06-03 21:40:37,332 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000102: Fetching database metadata
+2015-06-03 21:40:37,343 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000396: Updating schema
+2015-06-03 21:40:37,360 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000261: Table found: test.Person
+2015-06-03 21:40:37,360 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000037: Columns: [id, birthday, nationality, surnameprefix, givenname, surname]
+2015-06-03 21:40:37,360 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000108: Foreign keys: []
+2015-06-03 21:40:37,360 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000126: Indexes: [primary]
+2015-06-03 21:40:37,361 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000232: Schema update complete
+2015-06-03 21:40:37,474 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] Mapped "{[/],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.http.ResponseEntity<nl.my888.resume.hal.resources.root.RootResource> nl.my888.resume.hal.resources.root.RootResourceController.get()
+2015-06-03 21:40:37,731 INFO  [org.springframework.mock.web.MockServletContext] Initializing Spring FrameworkServlet ''
+2015-06-03 21:40:37,731 INFO  [org.springframework.test.web.servlet.TestDispatcherServlet] FrameworkServlet '': initialization started
+2015-06-03 21:40:37,750 INFO  [org.springframework.test.web.servlet.TestDispatcherServlet] FrameworkServlet '': initialization completed in 19 ms
+2015-06-03 21:40:37,797 INFO  [org.springframework.web.context.support.GenericWebApplicationContext] Closing org.springframework.web.context.support.GenericWebApplicationContext@51fe358a: startup date [Wed Jun 03 21:40:36 CEST 2015]; root of context hierarchy
+2015-06-03 21:40:37,808 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'default'
+2015-06-03 22:06:34,154 INFO  [org.springframework.web.context.support.GenericWebApplicationContext] Refreshing org.springframework.web.context.support.GenericWebApplicationContext@547248ad: startup date [Wed Jun 03 22:06:34 CEST 2015]; root of context hierarchy
+2015-06-03 22:06:34,392 WARN  [org.springframework.context.annotation.ConfigurationClassEnhancer] @Bean method TestServiceConfig.customScopeConfigurer is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details
+2015-06-03 22:06:34,639 INFO  [org.springframework.jdbc.datasource.DriverManagerDataSource] Loaded JDBC driver: com.mysql.jdbc.Driver
+2015-06-03 22:06:34,659 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Building JPA container EntityManagerFactory for persistence unit 'default'
+2015-06-03 22:06:34,759 INFO  [org.hibernate.annotations.common.Version] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-06-03 22:06:34,764 INFO  [org.hibernate.Version] HHH000412: Hibernate Core {4.0.1.Final}
+2015-06-03 22:06:34,765 INFO  [org.hibernate.cfg.Environment] HHH000206: hibernate.properties not found
+2015-06-03 22:06:34,766 INFO  [org.hibernate.cfg.Environment] HHH000021: Bytecode provider name : javassist
+2015-06-03 22:06:34,780 INFO  [org.hibernate.ejb.Ejb3Configuration] HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2015-06-03 22:06:34,933 INFO  [org.hibernate.service.jdbc.connections.internal.ConnectionProviderInitiator] HHH000130: Instantiating explicit connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+2015-06-03 22:06:35,095 INFO  [org.hibernate.dialect.Dialect] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-03 22:06:35,112 INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator] HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-06-03 22:06:35,115 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] HHH000397: Using ASTQueryTranslatorFactory
+2015-06-03 22:06:35,239 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000228: Running hbm2ddl schema update
+2015-06-03 22:06:35,239 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000102: Fetching database metadata
+2015-06-03 22:06:35,251 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000396: Updating schema
+2015-06-03 22:06:35,263 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000261: Table found: test.Person
+2015-06-03 22:06:35,264 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000037: Columns: [id, birthday, nationality, surnameprefix, givenname, surname]
+2015-06-03 22:06:35,264 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000108: Foreign keys: []
+2015-06-03 22:06:35,264 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000126: Indexes: [primary]
+2015-06-03 22:06:35,264 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000232: Schema update complete
+2015-06-03 22:06:35,392 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] Mapped "{[/root],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.http.ResponseEntity<nl.my888.resume.hal.resources.root.RootResource> nl.my888.resume.hal.resources.root.RootResourceController.get()
+2015-06-03 22:06:35,599 INFO  [org.springframework.mock.web.MockServletContext] Initializing Spring FrameworkServlet ''
+2015-06-03 22:06:35,599 INFO  [org.springframework.test.web.servlet.TestDispatcherServlet] FrameworkServlet '': initialization started
+2015-06-03 22:06:35,625 INFO  [org.springframework.test.web.servlet.TestDispatcherServlet] FrameworkServlet '': initialization completed in 26 ms
+2015-06-03 22:06:35,720 INFO  [org.springframework.web.context.support.GenericWebApplicationContext] Closing org.springframework.web.context.support.GenericWebApplicationContext@547248ad: startup date [Wed Jun 03 22:06:34 CEST 2015]; root of context hierarchy
+2015-06-03 22:06:35,731 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'default'
+2015-06-03 22:09:49,231 INFO  [org.springframework.web.context.support.GenericWebApplicationContext] Refreshing org.springframework.web.context.support.GenericWebApplicationContext@6f7476d: startup date [Wed Jun 03 22:09:49 CEST 2015]; root of context hierarchy
+2015-06-03 22:09:49,484 WARN  [org.springframework.context.annotation.ConfigurationClassEnhancer] @Bean method TestServiceConfig.customScopeConfigurer is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details
+2015-06-03 22:09:49,742 INFO  [org.springframework.jdbc.datasource.DriverManagerDataSource] Loaded JDBC driver: com.mysql.jdbc.Driver
+2015-06-03 22:09:49,762 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Building JPA container EntityManagerFactory for persistence unit 'default'
+2015-06-03 22:09:49,862 INFO  [org.hibernate.annotations.common.Version] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-06-03 22:09:49,866 INFO  [org.hibernate.Version] HHH000412: Hibernate Core {4.0.1.Final}
+2015-06-03 22:09:49,867 INFO  [org.hibernate.cfg.Environment] HHH000206: hibernate.properties not found
+2015-06-03 22:09:49,868 INFO  [org.hibernate.cfg.Environment] HHH000021: Bytecode provider name : javassist
+2015-06-03 22:09:49,884 INFO  [org.hibernate.ejb.Ejb3Configuration] HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2015-06-03 22:09:50,041 INFO  [org.hibernate.service.jdbc.connections.internal.ConnectionProviderInitiator] HHH000130: Instantiating explicit connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+2015-06-03 22:09:50,201 INFO  [org.hibernate.dialect.Dialect] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-03 22:09:50,217 INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator] HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-06-03 22:09:50,220 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] HHH000397: Using ASTQueryTranslatorFactory
+2015-06-03 22:09:50,335 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000228: Running hbm2ddl schema update
+2015-06-03 22:09:50,335 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000102: Fetching database metadata
+2015-06-03 22:09:50,351 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000396: Updating schema
+2015-06-03 22:09:50,373 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000261: Table found: test.Person
+2015-06-03 22:09:50,373 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000037: Columns: [id, birthday, nationality, surnameprefix, givenname, surname]
+2015-06-03 22:09:50,373 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000108: Foreign keys: []
+2015-06-03 22:09:50,373 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000126: Indexes: [primary]
+2015-06-03 22:09:50,374 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000232: Schema update complete
+2015-06-03 22:09:50,488 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] Mapped "{[/root],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.http.ResponseEntity<nl.my888.resume.hal.resources.root.RootResource> nl.my888.resume.hal.resources.root.RootResourceController.get()
+2015-06-03 22:09:50,673 INFO  [org.springframework.mock.web.MockServletContext] Initializing Spring FrameworkServlet ''
+2015-06-03 22:09:50,673 INFO  [org.springframework.test.web.servlet.TestDispatcherServlet] FrameworkServlet '': initialization started
+2015-06-03 22:09:50,691 INFO  [org.springframework.test.web.servlet.TestDispatcherServlet] FrameworkServlet '': initialization completed in 18 ms
+2015-06-03 22:09:50,770 INFO  [org.springframework.web.context.support.GenericWebApplicationContext] Closing org.springframework.web.context.support.GenericWebApplicationContext@6f7476d: startup date [Wed Jun 03 22:09:49 CEST 2015]; root of context hierarchy
+2015-06-03 22:09:50,779 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'default'
+2015-06-03 22:11:59,020 INFO  [org.springframework.web.context.support.GenericWebApplicationContext] Refreshing org.springframework.web.context.support.GenericWebApplicationContext@6f7476d: startup date [Wed Jun 03 22:11:59 CEST 2015]; root of context hierarchy
+2015-06-03 22:11:59,272 WARN  [org.springframework.context.annotation.ConfigurationClassEnhancer] @Bean method TestServiceConfig.customScopeConfigurer is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details
+2015-06-03 22:11:59,537 INFO  [org.springframework.jdbc.datasource.DriverManagerDataSource] Loaded JDBC driver: com.mysql.jdbc.Driver
+2015-06-03 22:11:59,565 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Building JPA container EntityManagerFactory for persistence unit 'default'
+2015-06-03 22:11:59,688 INFO  [org.hibernate.annotations.common.Version] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-06-03 22:11:59,694 INFO  [org.hibernate.Version] HHH000412: Hibernate Core {4.0.1.Final}
+2015-06-03 22:11:59,696 INFO  [org.hibernate.cfg.Environment] HHH000206: hibernate.properties not found
+2015-06-03 22:11:59,697 INFO  [org.hibernate.cfg.Environment] HHH000021: Bytecode provider name : javassist
+2015-06-03 22:11:59,717 INFO  [org.hibernate.ejb.Ejb3Configuration] HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2015-06-03 22:11:59,900 INFO  [org.hibernate.service.jdbc.connections.internal.ConnectionProviderInitiator] HHH000130: Instantiating explicit connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+2015-06-03 22:12:00,069 INFO  [org.hibernate.dialect.Dialect] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-03 22:12:00,085 INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator] HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-06-03 22:12:00,088 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] HHH000397: Using ASTQueryTranslatorFactory
+2015-06-03 22:12:00,222 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000228: Running hbm2ddl schema update
+2015-06-03 22:12:00,222 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000102: Fetching database metadata
+2015-06-03 22:12:00,235 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000396: Updating schema
+2015-06-03 22:12:00,256 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000261: Table found: test.Person
+2015-06-03 22:12:00,257 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000037: Columns: [id, birthday, nationality, surnameprefix, givenname, surname]
+2015-06-03 22:12:00,257 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000108: Foreign keys: []
+2015-06-03 22:12:00,257 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000126: Indexes: [primary]
+2015-06-03 22:12:00,257 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000232: Schema update complete
+2015-06-03 22:12:00,384 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] Mapped "{[/root],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.http.ResponseEntity<nl.my888.resume.hal.resources.root.RootResource> nl.my888.resume.hal.resources.root.RootResourceController.get()
+2015-06-03 22:12:00,588 INFO  [org.springframework.mock.web.MockServletContext] Initializing Spring FrameworkServlet ''
+2015-06-03 22:12:00,588 INFO  [org.springframework.test.web.servlet.TestDispatcherServlet] FrameworkServlet '': initialization started
+2015-06-03 22:12:00,611 INFO  [org.springframework.test.web.servlet.TestDispatcherServlet] FrameworkServlet '': initialization completed in 23 ms
+2015-06-03 22:12:00,636 INFO  [org.springframework.web.context.support.GenericWebApplicationContext] Closing org.springframework.web.context.support.GenericWebApplicationContext@6f7476d: startup date [Wed Jun 03 22:11:59 CEST 2015]; root of context hierarchy
+2015-06-03 22:12:00,644 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'default'
+2015-06-03 22:12:23,142 INFO  [org.springframework.web.context.support.GenericWebApplicationContext] Refreshing org.springframework.web.context.support.GenericWebApplicationContext@6f7476d: startup date [Wed Jun 03 22:12:23 CEST 2015]; root of context hierarchy
+2015-06-03 22:12:23,406 WARN  [org.springframework.context.annotation.ConfigurationClassEnhancer] @Bean method TestServiceConfig.customScopeConfigurer is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details
+2015-06-03 22:12:23,663 INFO  [org.springframework.jdbc.datasource.DriverManagerDataSource] Loaded JDBC driver: com.mysql.jdbc.Driver
+2015-06-03 22:12:23,682 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Building JPA container EntityManagerFactory for persistence unit 'default'
+2015-06-03 22:12:23,782 INFO  [org.hibernate.annotations.common.Version] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-06-03 22:12:23,786 INFO  [org.hibernate.Version] HHH000412: Hibernate Core {4.0.1.Final}
+2015-06-03 22:12:23,787 INFO  [org.hibernate.cfg.Environment] HHH000206: hibernate.properties not found
+2015-06-03 22:12:23,788 INFO  [org.hibernate.cfg.Environment] HHH000021: Bytecode provider name : javassist
+2015-06-03 22:12:23,804 INFO  [org.hibernate.ejb.Ejb3Configuration] HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2015-06-03 22:12:23,967 INFO  [org.hibernate.service.jdbc.connections.internal.ConnectionProviderInitiator] HHH000130: Instantiating explicit connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+2015-06-03 22:12:24,134 INFO  [org.hibernate.dialect.Dialect] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-03 22:12:24,151 INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator] HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-06-03 22:12:24,154 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] HHH000397: Using ASTQueryTranslatorFactory
+2015-06-03 22:12:24,282 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000228: Running hbm2ddl schema update
+2015-06-03 22:12:24,282 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000102: Fetching database metadata
+2015-06-03 22:12:24,292 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000396: Updating schema
+2015-06-03 22:12:24,318 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000261: Table found: test.Person
+2015-06-03 22:12:24,318 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000037: Columns: [id, birthday, nationality, surnameprefix, givenname, surname]
+2015-06-03 22:12:24,318 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000108: Foreign keys: []
+2015-06-03 22:12:24,318 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000126: Indexes: [primary]
+2015-06-03 22:12:24,319 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000232: Schema update complete
+2015-06-03 22:12:24,439 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] Mapped "{[/root],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.http.ResponseEntity<nl.my888.resume.hal.resources.root.RootResource> nl.my888.resume.hal.resources.root.RootResourceController.get()
+2015-06-03 22:12:24,639 INFO  [org.springframework.mock.web.MockServletContext] Initializing Spring FrameworkServlet ''
+2015-06-03 22:12:24,639 INFO  [org.springframework.test.web.servlet.TestDispatcherServlet] FrameworkServlet '': initialization started
+2015-06-03 22:12:24,657 INFO  [org.springframework.test.web.servlet.TestDispatcherServlet] FrameworkServlet '': initialization completed in 18 ms
+2015-06-03 22:12:24,747 INFO  [org.springframework.web.context.support.GenericWebApplicationContext] Closing org.springframework.web.context.support.GenericWebApplicationContext@6f7476d: startup date [Wed Jun 03 22:12:23 CEST 2015]; root of context hierarchy
+2015-06-03 22:12:24,757 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'default'
+2015-06-03 22:13:26,371 INFO  [org.springframework.web.context.support.GenericWebApplicationContext] Refreshing org.springframework.web.context.support.GenericWebApplicationContext@62469173: startup date [Wed Jun 03 22:13:26 CEST 2015]; root of context hierarchy
+2015-06-03 22:13:26,618 WARN  [org.springframework.context.annotation.ConfigurationClassEnhancer] @Bean method TestServiceConfig.customScopeConfigurer is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details
+2015-06-03 22:13:26,869 INFO  [org.springframework.jdbc.datasource.DriverManagerDataSource] Loaded JDBC driver: com.mysql.jdbc.Driver
+2015-06-03 22:13:26,889 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Building JPA container EntityManagerFactory for persistence unit 'default'
+2015-06-03 22:13:26,991 INFO  [org.hibernate.annotations.common.Version] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-06-03 22:13:26,996 INFO  [org.hibernate.Version] HHH000412: Hibernate Core {4.0.1.Final}
+2015-06-03 22:13:26,997 INFO  [org.hibernate.cfg.Environment] HHH000206: hibernate.properties not found
+2015-06-03 22:13:26,998 INFO  [org.hibernate.cfg.Environment] HHH000021: Bytecode provider name : javassist
+2015-06-03 22:13:27,014 INFO  [org.hibernate.ejb.Ejb3Configuration] HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2015-06-03 22:13:27,171 INFO  [org.hibernate.service.jdbc.connections.internal.ConnectionProviderInitiator] HHH000130: Instantiating explicit connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+2015-06-03 22:13:27,341 INFO  [org.hibernate.dialect.Dialect] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-03 22:13:27,357 INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator] HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-06-03 22:13:27,360 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] HHH000397: Using ASTQueryTranslatorFactory
+2015-06-03 22:13:27,489 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000228: Running hbm2ddl schema update
+2015-06-03 22:13:27,489 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000102: Fetching database metadata
+2015-06-03 22:13:27,500 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000396: Updating schema
+2015-06-03 22:13:27,522 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000261: Table found: test.Person
+2015-06-03 22:13:27,523 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000037: Columns: [id, birthday, nationality, surnameprefix, givenname, surname]
+2015-06-03 22:13:27,523 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000108: Foreign keys: []
+2015-06-03 22:13:27,523 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000126: Indexes: [primary]
+2015-06-03 22:13:27,523 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000232: Schema update complete
+2015-06-03 22:13:27,643 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] Mapped "{[],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.http.ResponseEntity<nl.my888.resume.hal.resources.root.RootResource> nl.my888.resume.hal.resources.root.RootResourceController.get()
+2015-06-03 22:13:27,843 INFO  [org.springframework.mock.web.MockServletContext] Initializing Spring FrameworkServlet ''
+2015-06-03 22:13:27,843 INFO  [org.springframework.test.web.servlet.TestDispatcherServlet] FrameworkServlet '': initialization started
+2015-06-03 22:13:27,863 INFO  [org.springframework.test.web.servlet.TestDispatcherServlet] FrameworkServlet '': initialization completed in 20 ms
+2015-06-03 22:13:27,865 INFO  [org.springframework.web.context.support.GenericWebApplicationContext] Closing org.springframework.web.context.support.GenericWebApplicationContext@62469173: startup date [Wed Jun 03 22:13:26 CEST 2015]; root of context hierarchy
+2015-06-03 22:13:27,873 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'default'
+2015-06-03 22:13:50,065 INFO  [org.springframework.web.context.support.GenericWebApplicationContext] Refreshing org.springframework.web.context.support.GenericWebApplicationContext@547248ad: startup date [Wed Jun 03 22:13:50 CEST 2015]; root of context hierarchy
+2015-06-03 22:13:50,312 WARN  [org.springframework.context.annotation.ConfigurationClassEnhancer] @Bean method TestServiceConfig.customScopeConfigurer is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details
+2015-06-03 22:13:50,565 INFO  [org.springframework.jdbc.datasource.DriverManagerDataSource] Loaded JDBC driver: com.mysql.jdbc.Driver
+2015-06-03 22:13:50,584 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Building JPA container EntityManagerFactory for persistence unit 'default'
+2015-06-03 22:13:50,684 INFO  [org.hibernate.annotations.common.Version] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-06-03 22:13:50,689 INFO  [org.hibernate.Version] HHH000412: Hibernate Core {4.0.1.Final}
+2015-06-03 22:13:50,690 INFO  [org.hibernate.cfg.Environment] HHH000206: hibernate.properties not found
+2015-06-03 22:13:50,691 INFO  [org.hibernate.cfg.Environment] HHH000021: Bytecode provider name : javassist
+2015-06-03 22:13:50,707 INFO  [org.hibernate.ejb.Ejb3Configuration] HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2015-06-03 22:13:50,855 INFO  [org.hibernate.service.jdbc.connections.internal.ConnectionProviderInitiator] HHH000130: Instantiating explicit connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+2015-06-03 22:13:51,025 INFO  [org.hibernate.dialect.Dialect] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-03 22:13:51,040 INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator] HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-06-03 22:13:51,042 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] HHH000397: Using ASTQueryTranslatorFactory
+2015-06-03 22:13:51,158 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000228: Running hbm2ddl schema update
+2015-06-03 22:13:51,159 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000102: Fetching database metadata
+2015-06-03 22:13:51,169 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000396: Updating schema
+2015-06-03 22:13:51,193 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000261: Table found: test.Person
+2015-06-03 22:13:51,193 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000037: Columns: [id, birthday, nationality, surnameprefix, givenname, surname]
+2015-06-03 22:13:51,193 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000108: Foreign keys: []
+2015-06-03 22:13:51,193 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] HHH000126: Indexes: [primary]
+2015-06-03 22:13:51,194 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] HHH000232: Schema update complete
+2015-06-03 22:13:51,301 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] Mapped "{[],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.http.ResponseEntity<nl.my888.resume.hal.resources.root.RootResource> nl.my888.resume.hal.resources.root.RootResourceController.get()
+2015-06-03 22:13:51,487 INFO  [org.springframework.mock.web.MockServletContext] Initializing Spring FrameworkServlet ''
+2015-06-03 22:13:51,488 INFO  [org.springframework.test.web.servlet.TestDispatcherServlet] FrameworkServlet '': initialization started
+2015-06-03 22:13:51,510 INFO  [org.springframework.test.web.servlet.TestDispatcherServlet] FrameworkServlet '': initialization completed in 22 ms
+2015-06-03 22:13:51,602 INFO  [org.springframework.web.context.support.GenericWebApplicationContext] Closing org.springframework.web.context.support.GenericWebApplicationContext@547248ad: startup date [Wed Jun 03 22:13:50 CEST 2015]; root of context hierarchy
+2015-06-03 22:13:51,611 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Closing JPA EntityManagerFactory for persistence unit 'default'
