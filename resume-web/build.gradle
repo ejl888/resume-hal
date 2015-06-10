@@ -6,7 +6,6 @@ dependencies {
     compile project(":resume-repository")
     compile project(":resume-service")
 
-//    compile project(":resume-repository")
     providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
     compile 'mysql:mysql-connector-java:5.1.18'
 
@@ -16,9 +15,9 @@ dependencies {
             'com.jayway.jsonpath:json-path:0.9.1',
             'com.fasterxml.jackson.core:jackson-databind:2.3.3'
 
-    compile ':spring-hateoas-extended:0.1.0-SNAPSHOT'
+    compile 'nl.my888:spring-hateoas-extended:0.1.0-SNAPSHOT'
 
     compile 'com.thetransactioncompany:cors-filter:2.2.1'
 
-    testCompile ':hal-resource-matcher:0.1.0-SNAPSHOT'
+    testCompile 'nl.my888:hal-resource-matcher:0.1.0-SNAPSHOT'
 }
