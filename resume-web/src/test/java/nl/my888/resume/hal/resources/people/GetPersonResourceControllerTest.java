@@ -1,4 +1,4 @@
-package nl.my888.resume.hal.resources.root;
+package nl.my888.resume.hal.resources.people;
 
 import nl.my888.resume.hal.common.MockMvcTest;
 import nl.my888.resume.hal.config.HalApiConfig;
@@ -14,28 +14,20 @@ import static nl.my888.springframework.test.web.servlet.halmatchers.RootResource
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(classes = {HalApiConfig.class, TestServiceConfig.class})
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-public class GetRootResourceControllerTest extends MockMvcTest {
+public class GetPersonResourceControllerTest extends MockMvcTest {
 
     @Test
-    public void testGetRoot() throws Exception {
-        perform(get("/root"))
+    public void testGet() throws Exception {
+        perform(get("/people/ejl888"))
                 .andExpect(rootResource()
-                                .havingProperty("version", equalTo("0.1.0"))
-                                .havingSelfLink("/root")
-                                .havingProfile(RootResource.PROFILE_URI)
-                );
-    }
-
-    @Test
-    public void testCurrentUser() throws Exception {
-        perform(get("/root"))
-                .andExpect(rootResource().linkedResource("888ict:current-user")
-                        .exists()
+                        .havingSelfLink("/people/ejl888")
+                        .havingProfile(PersonResource.PROFILE_URI)
+                        .nestedObject("name")
+                        .havingProperty("fullName", equalTo("E. van der Laan"))
                 );
 
     }

@@ -20,4 +20,9 @@ public class RootResourceController {
     public ResponseEntity<RootResource> get() {
         return new ResponseEntity<>(rootResourceAssembler.toResource(), HttpStatus.OK);
     }
+
+    @RequestMapping("/current-user")
+    public ResponseEntity<Void> getCurrentUser() {
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
 }
