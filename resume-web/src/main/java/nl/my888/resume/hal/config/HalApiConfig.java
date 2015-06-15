@@ -32,7 +32,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import static org.springframework.hateoas.MediaTypes.HAL_JSON;
 
 @Configuration
-@ComponentScan("nl.my888")
+@ComponentScan("nl.my888.resume.hal")
 @EnableWebMvc
 //@EnableJpaRepositories("nl.my888.resume.repository")
 @EnableHypermediaSupport(type = EnableHypermediaSupport.HypermediaType.HAL)

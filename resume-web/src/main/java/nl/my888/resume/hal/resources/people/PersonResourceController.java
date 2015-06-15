@@ -2,6 +2,7 @@ package nl.my888.resume.hal.resources.people;
 
 import nl.my888.resume.repository.Person;
 import nl.my888.resume.repository.PersonalName;
+import nl.my888.resume.services.people.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -16,6 +17,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/people")
 public class PersonResourceController {
+
+    @Autowired
+    private PersonService personService;
 
     @Autowired
     private PersonResourceAssembler personResourceAssembler;
@@ -36,14 +40,16 @@ public class PersonResourceController {
      */
     @ResponseBody
     @RequestMapping(value = "/{username}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<PersonResource> put(@PathVariable("username") String username,
+    public ResponseEntity<PersonResource> put(
+            @PathVariable("username") String username,
             @RequestBody PersonResource personResource) {
-        // TODO update backend
 
         final Person person = getPersonByUsername(username);
         person.setName(personResource.getName());
 
-        return new ResponseEntity<>(personResourceAssembler.toResource(person), HttpStatus.OK);
+        final Person savedPerson = personService.savePerson(person);
+
+        return new ResponseEntity<>(personResourceAssembler.toResource(savedPerson), HttpStatus.OK);
     }
 
     private Person getPersonByUsername(String username) {

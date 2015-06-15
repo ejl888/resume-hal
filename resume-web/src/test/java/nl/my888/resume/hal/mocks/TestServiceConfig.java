@@ -2,6 +2,8 @@ package nl.my888.resume.hal.mocks;
 
 import java.util.HashMap;
 
+import nl.my888.resume.services.people.PersonService;
+import org.easymock.EasyMock;
 import org.springframework.beans.factory.config.CustomScopeConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -14,6 +16,11 @@ import org.springframework.web.context.WebApplicationContext;
 @Configuration
 @ComponentScan(includeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = ResourceAssembler.class))
 public class TestServiceConfig {
+
+    @Bean
+    public PersonService personService() {
+        return EasyMock.createMock(PersonService.class);
+    }
 
     @Bean
     public CustomScopeConfigurer customScopeConfigurer() {
