@@ -20,4 +20,6 @@ dependencies {
     compile 'com.thetransactioncompany:cors-filter:2.2.1'
 
     testCompile 'nl.my888:hal-resource-matcher:0.1.0-SNAPSHOT'
+
+    testCompile project(path: ':resume-repository', configuration: 'tests')
 }

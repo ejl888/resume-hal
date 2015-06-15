@@ -15,6 +15,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import static nl.my888.resume.repository.PersonFixtures.createValidPerson;
 import static nl.my888.springframework.test.web.servlet.halmatchers.RootResourceMatcher.rootResource;
 import static org.easymock.EasyMock.anyObject;
 import static org.easymock.EasyMock.expect;
@@ -34,19 +35,27 @@ public class PersonResourceControllerTest extends MockMvcTest {
 
     @Test
     public void testGet() throws Exception {
-        perform(get("/people/ejl888"))
+
+        Person givenPerson = createValidPerson("MrT");
+        expect(mockPersonService.getPersonByUsername(anyObject(String.class))).andReturn(givenPerson).once();
+        replay(mockPersonService);
+
+        perform(get("/people/{username}", givenPerson.getUsername()))
                 .andExpect(rootResource()
-                        .havingSelfLink("/people/ejl888")
+                        .havingSelfLink("/people/{id}", givenPerson.getUsername())
                         .havingProfile(PersonResource.PROFILE_URI)
                         .nestedObject("name")
-                        .havingProperty("fullName", equalTo("E. van der Laan"))
+                        .havingProperty("fullName", equalTo(givenPerson.getName().getFullName()))
                 );
+//        verify(mockPersonService);
     }
 
     @Test
     public void testPut() throws Exception {
         final String newPersonContent = "{ \"name\": {\"fullName\": \"M. van der Laan\" } }";
 
+        Person givenPerson = createValidPerson("ejl888");
+        expect(mockPersonService.getPersonByUsername(anyObject(String.class))).andReturn(givenPerson).once();
         expect(mockPersonService.savePerson(anyObject(Person.class))).andAnswer(new EchoArgumentAnswer<Person>()).once();
         replay(mockPersonService);
 
@@ -59,6 +68,7 @@ public class PersonResourceControllerTest extends MockMvcTest {
                                 .nestedObject("name")
                                 .havingProperty("fullName", equalTo("M. van der Laan"))
                 );
+
     }
 
 }

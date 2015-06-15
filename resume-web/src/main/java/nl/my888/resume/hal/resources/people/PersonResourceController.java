@@ -1,7 +1,6 @@
 package nl.my888.resume.hal.resources.people;
 
 import nl.my888.resume.repository.Person;
-import nl.my888.resume.repository.PersonalName;
 import nl.my888.resume.services.people.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -53,11 +52,7 @@ public class PersonResourceController {
     }
 
     private Person getPersonByUsername(String username) {
-        final Person person = new Person("ejl888");
-        final PersonalName personalName = new PersonalName();
-        personalName.setFullName("E. van der Laan");
-        person.setName(personalName);
-        return person;
+        return personService.getPersonByUsername(username);
     }
 
     @RequestMapping()
