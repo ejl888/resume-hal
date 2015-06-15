@@ -56,11 +56,31 @@ public class PersonResourceControllerTest extends MockMvcTest {
     }
 
     @Test
-    public void testPut() throws Exception {
+    public void testPutExistingUser() throws Exception {
         final String newPersonContent = "{ \"name\": {\"fullName\": \"M. van der Laan\" } }";
 
         Person givenPerson = createValidPerson("ejl888");
         expect(mockPersonService.getPersonByUsername(anyObject(String.class))).andReturn(givenPerson).once();
+        expect(mockPersonService.savePerson(anyObject(Person.class))).andAnswer(new EchoArgumentAnswer<Person>()).once();
+        replay(mockPersonService);
+
+        perform(put("/people/ejl888")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(newPersonContent))
+                .andExpect(rootResource()
+                                .havingSelfLink("/people/ejl888")
+                                .havingProfile(PersonResource.PROFILE_URI)
+                                .nestedObject("name")
+                                .havingProperty("fullName", equalTo("M. van der Laan"))
+                );
+
+    }
+
+    @Test
+    public void testPutNewUser() throws Exception {
+        final String newPersonContent = "{ \"name\": {\"fullName\": \"M. van der Laan\" } }";
+
+        expect(mockPersonService.getPersonByUsername(anyObject(String.class))).andReturn(null).once();
         expect(mockPersonService.savePerson(anyObject(Person.class))).andAnswer(new EchoArgumentAnswer<Person>()).once();
         replay(mockPersonService);
 

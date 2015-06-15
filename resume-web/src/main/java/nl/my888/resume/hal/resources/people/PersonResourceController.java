@@ -43,16 +43,21 @@ public class PersonResourceController {
             @PathVariable("username") String username,
             @RequestBody PersonResource personResource) {
 
-        Person person = getPersonByUsername(username);
-        if (person == null) {
-            person = new Person(username);
-        }
+        final Person person = getOrCreatePersonWithUsername(username);
 
         person.setName(personResource.getName());
 
         final Person savedPerson = personService.savePerson(person);
 
         return new ResponseEntity<>(personResourceAssembler.toResource(savedPerson), HttpStatus.OK);
+    }
+
+    private Person getOrCreatePersonWithUsername(@PathVariable("username") String username) {
+        Person result = getPersonByUsername(username);
+        if (result == null) {
+            result = new Person(username);
+        }
+        return result;
     }
 
     private Person getPersonByUsername(String username) {

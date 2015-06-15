@@ -20,12 +20,14 @@ import org.springframework.hateoas.hal.Jackson2HalModule;
 import org.springframework.hateoas.mvc.TypeConstrainedMappingJackson2HttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import static org.springframework.hateoas.MediaTypes.HAL_JSON;
 
 @Configuration
 @ComponentScan("nl.my888.resume.hal")
+@EnableWebMvc
 @EnableHypermediaSupport(type = EnableHypermediaSupport.HypermediaType.HAL)
 public class HalApiConfig extends WebMvcConfigurerAdapter {
 
