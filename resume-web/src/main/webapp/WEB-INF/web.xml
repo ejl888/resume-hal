@@ -17,7 +17,7 @@
         </init-param>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>nl.my888.resume.hal.config.HalApiConfig</param-value>
+            <param-value>nl.my888.resume.hal.config.WebAppConfig</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>

@@ -5,7 +5,7 @@ import java.net.URI;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import nl.my888.resume.hal.constants.ProfileUtil;
-import nl.my888.resume.repository.PersonalName;
+import nl.my888.resume.repository.people.PersonalName;
 import nl.my888.springframework.hateoas.links.ProfileLink;
 import nl.my888.springframework.hateoas.resource.EmbeddedResourceSupport;
 

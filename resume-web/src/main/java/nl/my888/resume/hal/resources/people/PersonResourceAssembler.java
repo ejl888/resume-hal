@@ -1,6 +1,6 @@
 package nl.my888.resume.hal.resources.people;
 
-import nl.my888.resume.repository.Person;
+import nl.my888.resume.repository.people.Person;
 import org.springframework.hateoas.mvc.ResourceAssemblerSupport;
 import org.springframework.stereotype.Component;
 

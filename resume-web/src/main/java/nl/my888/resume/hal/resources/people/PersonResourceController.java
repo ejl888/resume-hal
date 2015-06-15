@@ -1,6 +1,6 @@
 package nl.my888.resume.hal.resources.people;
 
-import nl.my888.resume.repository.Person;
+import nl.my888.resume.repository.people.Person;
 import nl.my888.resume.services.people.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,7 +24,7 @@ public class PersonResourceController {
     private PersonResourceAssembler personResourceAssembler;
 
     @ResponseBody
-    @RequestMapping("/{username}")
+    @RequestMapping(value = "/{username}", method = RequestMethod.GET)
     public ResponseEntity<PersonResource> get(@PathVariable("username") String username) {
         final Person person = getPersonByUsername(username);
 
@@ -43,7 +43,11 @@ public class PersonResourceController {
             @PathVariable("username") String username,
             @RequestBody PersonResource personResource) {
 
-        final Person person = getPersonByUsername(username);
+        Person person = getPersonByUsername(username);
+        if (person == null) {
+            person = new Person(username);
+        }
+
         person.setName(personResource.getName());
 
         final Person savedPerson = personService.savePerson(person);

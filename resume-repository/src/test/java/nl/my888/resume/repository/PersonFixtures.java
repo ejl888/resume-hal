@@ -1,5 +1,8 @@
 package nl.my888.resume.repository;
 
+import nl.my888.resume.repository.people.Person;
+import nl.my888.resume.repository.people.PersonalName;
+
 public class PersonFixtures {
 
     private PersonFixtures() {
@@ -7,7 +10,7 @@ public class PersonFixtures {
     }
 
     public static Person createValidPerson(String username) {
-        final Person result = new Person();
+        final Person result = new Person(username);
 
         final PersonalName personalName = new PersonalName();
         personalName.setFullName("Mr. T van 't Tester");
@@ -15,7 +18,6 @@ public class PersonFixtures {
         personalName.setSurname("Tester");
         personalName.setSurnamePrefix("van 't");
 
-        result.setUsername(username);
         result.setName(personalName);
 
         return result;
