@@ -16,7 +16,7 @@ public class PersonResource extends EmbeddedResourceSupport {
     private final PersonalName name;
 
     @JsonCreator
-    public PersonResource(@JsonProperty PersonalName name) {
+    public PersonResource(@JsonProperty("name") PersonalName name) {
         this.name = name;
 
         add(createProfileLink());

@@ -4,10 +4,13 @@ import nl.my888.resume.repository.Person;
 import nl.my888.resume.repository.PersonalName;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -21,6 +24,24 @@ public class PersonResourceController {
     @RequestMapping("/{username}")
     public ResponseEntity<PersonResource> get(@PathVariable("username") String username) {
         final Person person = getPersonByUsername(username);
+
+        return new ResponseEntity<>(personResourceAssembler.toResource(person), HttpStatus.OK);
+    }
+
+    /**
+     * PUT, because the request is idempotent.
+     * @param username
+     * @param personResource
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/{username}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<PersonResource> put(@PathVariable("username") String username,
+            @RequestBody PersonResource personResource) {
+        // TODO update backend
+
+        final Person person = getPersonByUsername(username);
+        person.setName(personResource.getName());
 
         return new ResponseEntity<>(personResourceAssembler.toResource(person), HttpStatus.OK);
     }
