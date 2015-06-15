@@ -4,6 +4,7 @@ import nl.my888.resume.hal.common.MockMvcTest;
 import nl.my888.resume.hal.config.HalApiConfig;
 import nl.my888.resume.hal.mocks.TestServiceConfig;
 import nl.my888.resume.repository.Person;
+import nl.my888.resume.repository.PersonalName;
 import nl.my888.resume.services.people.PersonService;
 import nl.my888.test.easymock.EchoArgumentAnswer;
 import org.junit.Test;
@@ -40,12 +41,16 @@ public class PersonResourceControllerTest extends MockMvcTest {
         expect(mockPersonService.getPersonByUsername(anyObject(String.class))).andReturn(givenPerson).once();
         replay(mockPersonService);
 
+        final PersonalName givenPersonName = givenPerson.getName();
         perform(get("/people/{username}", givenPerson.getUsername()))
                 .andExpect(rootResource()
-                        .havingSelfLink("/people/{id}", givenPerson.getUsername())
-                        .havingProfile(PersonResource.PROFILE_URI)
-                        .nestedObject("name")
-                        .havingProperty("fullName", equalTo(givenPerson.getName().getFullName()))
+                                .havingSelfLink("/people/{id}", givenPerson.getUsername())
+                                .havingProfile(PersonResource.PROFILE_URI)
+                                .nestedObject("name")
+                                .havingProperty("fullName", equalTo(givenPersonName.getFullName()))
+                                .havingProperty("givenName", equalTo(givenPersonName.getGivenName()))
+                                .havingProperty("surname", equalTo(givenPersonName.getSurname()))
+                                .havingProperty("surnamePrefix", equalTo(givenPersonName.getSurnamePrefix()))
                 );
 //        verify(mockPersonService);
     }

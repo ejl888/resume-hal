@@ -13,7 +13,7 @@ public class PersonFixtures {
         personalName.setFullName("Mr. T van 't Tester");
         personalName.setGivenName("Ted");
         personalName.setSurname("Tester");
-        personalName.setSurnamePrefix("van 't Tester");
+        personalName.setSurnamePrefix("van 't");
 
         result.setUsername(username);
         result.setName(personalName);
