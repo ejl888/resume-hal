@@ -1,5 +1,6 @@
 package nl.my888.resume.hal.config;
 
+import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,6 +24,7 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import static nl.my888.resume.hal.constants.ProfileUtil.toProfileUri;
 import static org.springframework.hateoas.MediaTypes.HAL_JSON;
 
 @Configuration
@@ -32,6 +34,8 @@ import static org.springframework.hateoas.MediaTypes.HAL_JSON;
 public class HalApiConfig extends WebMvcConfigurerAdapter {
 
     public static final String RELATION_PREFIX = "resume888";
+
+    public static final URI COLLECTION_PROFILE =  toProfileUri("collection");
 
     private static final CurieProvider CURIE_PROVIDER = new DefaultCurieProvider(
             RELATION_PREFIX,

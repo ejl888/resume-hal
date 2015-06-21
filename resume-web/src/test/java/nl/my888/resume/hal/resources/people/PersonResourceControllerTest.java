@@ -1,7 +1,10 @@
 package nl.my888.resume.hal.resources.people;
 
+import java.util.Arrays;
+
 import nl.my888.resume.hal.common.MockMvcTest;
 import nl.my888.resume.hal.config.HalApiConfig;
+import nl.my888.resume.hal.constants.ResumeRelationTypes;
 import nl.my888.resume.hal.mocks.TestServiceConfig;
 import nl.my888.resume.repository.people.Person;
 import nl.my888.resume.repository.people.PersonalName;
@@ -16,6 +19,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import static nl.my888.resume.hal.constants.ResumeRelationTypes.asCurriedRelation;
 import static nl.my888.resume.repository.PersonFixtures.createValidPerson;
 import static nl.my888.springframework.test.web.servlet.halmatchers.RootResourceMatcher.rootResource;
 import static org.easymock.EasyMock.anyObject;
@@ -35,6 +39,26 @@ public class PersonResourceControllerTest extends MockMvcTest {
     private PersonService mockPersonService;
 
     @Test
+    public void testGetAll() throws Exception {
+
+        Person givenPerson1 = createValidPerson("MrT");
+        Person givenPerson2 = createValidPerson("MsTrex");
+
+        expect(mockPersonService.findAll())
+                .andReturn(Arrays.asList(givenPerson1, givenPerson2))
+                .once();
+        replay(mockPersonService);
+
+        perform(get("/people/users"))
+                .andExpect(rootResource()
+                                .havingProfile(HalApiConfig.COLLECTION_PROFILE)
+                                .embeddedResource(asCurriedRelation(ResumeRelationTypes.ITEMS))
+                                .havingSize(2)
+                );
+    }
+
+
+    @Test
     public void testGet() throws Exception {
 
         Person givenPerson = createValidPerson("MrT");
@@ -42,9 +66,9 @@ public class PersonResourceControllerTest extends MockMvcTest {
         replay(mockPersonService);
 
         final PersonalName givenPersonName = givenPerson.getName();
-        perform(get("/people/{username}", givenPerson.getUsername()))
+        perform(get("/people/users/{username}", givenPerson.getUsername()))
                 .andExpect(rootResource()
-                                .havingSelfLink("/people/{id}", givenPerson.getUsername())
+                                .havingSelfLink("/people/users/{id}", givenPerson.getUsername())
                                 .havingProfile(PersonResource.PROFILE_URI)
                                 .nestedObject("name")
                                 .havingProperty("fullName", equalTo(givenPersonName.getFullName()))
@@ -64,11 +88,11 @@ public class PersonResourceControllerTest extends MockMvcTest {
         expect(mockPersonService.savePerson(anyObject(Person.class))).andAnswer(new EchoArgumentAnswer<Person>()).once();
         replay(mockPersonService);
 
-        perform(put("/people/ejl888")
+        perform(put("/people/users/ejl888")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(newPersonContent))
                 .andExpect(rootResource()
-                                .havingSelfLink("/people/ejl888")
+                                .havingSelfLink("/people/users/ejl888")
                                 .havingProfile(PersonResource.PROFILE_URI)
                                 .nestedObject("name")
                                 .havingProperty("fullName", equalTo("M. van der Laan"))
@@ -84,11 +108,11 @@ public class PersonResourceControllerTest extends MockMvcTest {
         expect(mockPersonService.savePerson(anyObject(Person.class))).andAnswer(new EchoArgumentAnswer<Person>()).once();
         replay(mockPersonService);
 
-        perform(put("/people/ejl888")
+        perform(put("/people/users/ejl888")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(newPersonContent))
                 .andExpect(rootResource()
-                                .havingSelfLink("/people/ejl888")
+                                .havingSelfLink("/people/users/ejl888")
                                 .havingProfile(PersonResource.PROFILE_URI)
                                 .nestedObject("name")
                                 .havingProperty("fullName", equalTo("M. van der Laan"))

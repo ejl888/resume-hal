@@ -23,4 +23,9 @@ public class PersonServiceImpl implements PersonService {
     public Person getPersonByUsername(String username) {
         return peopleRepository.findByUsername(username);
     }
+
+    @Override
+    public Iterable<Person> findAll() {
+        return peopleRepository.findAll();
+    }
 }

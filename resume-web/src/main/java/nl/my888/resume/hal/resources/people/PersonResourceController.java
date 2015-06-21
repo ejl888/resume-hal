@@ -3,6 +3,7 @@ package nl.my888.resume.hal.resources.people;
 import nl.my888.resume.repository.people.Person;
 import nl.my888.resume.services.people.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Resources;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -13,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
+
 @Controller
-@RequestMapping("/people")
+@RequestMapping("/people/users")
 public class PersonResourceController {
 
     @Autowired
@@ -23,10 +26,19 @@ public class PersonResourceController {
     @Autowired
     private PersonResourceAssembler personResourceAssembler;
 
+    @RequestMapping()
+    public ResponseEntity<Resources<PersonResource>> find() {
+        final Iterable<Person> users = personService.findAll();
+
+        return new ResponseEntity<>(
+                personResourceAssembler.toResourcesForMethod(methodOn(getClass()).find(), users),
+                HttpStatus.OK);
+    }
+
     @ResponseBody
     @RequestMapping(value = "/{username}", method = RequestMethod.GET)
     public ResponseEntity<PersonResource> get(@PathVariable("username") String username) {
-        final Person person = getPersonByUsername(username);
+        final Person person = getUser(username);
 
         return new ResponseEntity<>(personResourceAssembler.toResource(person), HttpStatus.OK);
     }
@@ -43,7 +55,7 @@ public class PersonResourceController {
             @PathVariable("username") String username,
             @RequestBody PersonResource personResource) {
 
-        final Person person = getOrCreatePersonWithUsername(username);
+        final Person person = getOrCreateUserWithUsername(username);
 
         person.setName(personResource.getName());
 
@@ -52,20 +64,16 @@ public class PersonResourceController {
         return new ResponseEntity<>(personResourceAssembler.toResource(savedPerson), HttpStatus.OK);
     }
 
-    private Person getOrCreatePersonWithUsername(@PathVariable("username") String username) {
-        Person result = getPersonByUsername(username);
+    private Person getOrCreateUserWithUsername(@PathVariable("username") String username) {
+        Person result = getUser(username);
         if (result == null) {
             result = new Person(username);
         }
         return result;
     }
 
-    private Person getPersonByUsername(String username) {
+    private Person getUser(String username) {
         return personService.getPersonByUsername(username);
     }
 
-    @RequestMapping()
-    public ResponseEntity<Void> find() {
-        return new ResponseEntity<Void>(HttpStatus.OK);
-    }
 }
