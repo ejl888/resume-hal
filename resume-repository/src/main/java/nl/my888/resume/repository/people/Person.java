@@ -18,7 +18,7 @@ public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     @Embedded
     private PersonalName name;
@@ -31,8 +31,12 @@ public class Person {
     private String username;
 
 
-    Person() {
+    protected Person() {
         // JPA only!
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public Person(String username) {
