@@ -1,19 +1,18 @@
-package nl.my888.resume.repository.organizations;
+package nl.my888.resume.repository.work;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import nl.my888.resume.repository.common.FieldConstants;
-import nl.my888.resume.repository.locations.Address;
 
+/**
+ * Project, can be shared my multiple people
+ */
 @Entity
-public class Organization {
+public class Project {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,15 +21,15 @@ public class Organization {
     @Column(length = FieldConstants.LABEL_LENGTH)
     private String name;
 
-    @ElementCollection
-    private Collection<Address> addresses = new ArrayList<>();
+    @Column(length = FieldConstants.TEXT_AREA)
+    private String description;
 
-    protected Organization() {
-        // JPA only!
+    public Long getId() {
+        return id;
     }
 
-    public long getId() {
-        return id;
+    void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -41,7 +40,11 @@ public class Organization {
         this.name = name;
     }
 
-    public Collection<Address> getAddresses() {
-        return addresses;
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

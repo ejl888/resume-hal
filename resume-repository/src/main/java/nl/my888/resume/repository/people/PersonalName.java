@@ -1,6 +1,9 @@
 package nl.my888.resume.repository.people;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
+
+import nl.my888.resume.repository.common.FieldConstants;
 
 /**
  * Created by ejl on 31/05/15.
@@ -8,12 +11,16 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class PersonalName {
 
+    @Column(length = FieldConstants.LABEL_LENGTH)
     private String fullName;
 
+    @Column(length = FieldConstants.LABEL_LENGTH)
     private String givenName;
 
+    @Column(length = FieldConstants.LABEL_LENGTH)
     private String surname;
 
+    @Column(length = FieldConstants.LABEL_LENGTH)
     private String surnamePrefix;
 
 

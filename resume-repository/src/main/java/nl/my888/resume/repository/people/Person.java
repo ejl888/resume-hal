@@ -1,5 +1,6 @@
 package nl.my888.resume.repository.people;
 
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import nl.my888.resume.repository.common.FieldConstants;
 import org.joda.time.LocalDate;
 
 /**
@@ -28,6 +30,7 @@ public class Person {
     @Enumerated(EnumType.STRING)
     private Nationality nationality;
 
+    @Column(length = FieldConstants.IDENTIFIER_LENGTH)
     private String username;
 
 

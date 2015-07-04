@@ -1,9 +1,11 @@
 package nl.my888.resume.repository.locations;
 
-import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+
+import nl.my888.resume.repository.common.FieldConstants;
 
 @Embeddable
 public class TelephoneNumber {
@@ -15,10 +17,10 @@ public class TelephoneNumber {
     @Enumerated(EnumType.STRING)
     private Type type;
 
-    @Basic
+    @Column(length = FieldConstants.IDENTIFIER_LENGTH)
     private String number;
 
-    @Basic
+    @Column(length = FieldConstants.IDENTIFIER_LENGTH)
     private String areaCode;
 
 }
