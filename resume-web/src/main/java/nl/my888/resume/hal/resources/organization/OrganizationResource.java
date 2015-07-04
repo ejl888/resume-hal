@@ -13,7 +13,7 @@ import org.springframework.hateoas.core.Relation;
 @Relation(value = ResumeRelationTypes.ORGANIZATION, collectionRelation = ResumeRelationTypes.ITEMS)
 public class OrganizationResource extends EmbeddedResourceSupport {
 
-    public static final URI PROFILE_URI = ProfileUtil.toProfileUri("organizations");
+    public static final URI PROFILE_URI = ProfileUtil.toProfileUri("organization");
 
     private final String name;
 

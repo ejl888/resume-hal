@@ -12,4 +12,6 @@ public interface OrganizationService {
     Iterable<Organization> findAll();
 
     Organization save(Organization organization);
+
+    Organization getOrganization(Long id);
 }

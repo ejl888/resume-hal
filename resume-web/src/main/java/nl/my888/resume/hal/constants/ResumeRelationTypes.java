@@ -8,6 +8,7 @@ public final class ResumeRelationTypes {
 
     public static final String PERSON = "person";
     public static final String ORGANIZATION = "organizations";
+    public static final String JOB = "job";
 
 
     public static String asCurriedRelation(String type) {

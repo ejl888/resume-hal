@@ -1,0 +1,26 @@
+package nl.my888.resume.hal.resources.employment;
+
+import java.net.URI;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import nl.my888.resume.hal.constants.ProfileUtil;
+import nl.my888.resume.hal.constants.ResumeRelationTypes;
+import nl.my888.springframework.hateoas.links.ProfileLink;
+import nl.my888.springframework.hateoas.resource.EmbeddedResourceSupport;
+import org.springframework.hateoas.core.Relation;
+
+@Relation(value = ResumeRelationTypes.JOB, collectionRelation = ResumeRelationTypes.ITEMS)
+public class JobResource extends EmbeddedResourceSupport {
+
+    public static final URI PROFILE_URI = ProfileUtil.toProfileUri("job");
+
+    @JsonCreator
+    public JobResource() {
+        add(createProfileLink());
+    }
+
+    private ProfileLink createProfileLink() {
+        return new ProfileLink(PROFILE_URI);
+    }
+
+}

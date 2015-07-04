@@ -1,5 +1,7 @@
 package nl.my888.resume.services.people.impl;
 
+import javax.persistence.EntityNotFoundException;
+
 import nl.my888.resume.repository.people.PeopleRepository;
 import nl.my888.resume.repository.people.Person;
 import nl.my888.resume.services.people.PersonService;
@@ -27,5 +29,19 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public Iterable<Person> findAll() {
         return peopleRepository.findAll();
+    }
+
+    @Override
+    public Person findOne(Long id) {
+        return peopleRepository.findOne(id);
+    }
+
+    @Override
+    public Person getPerson(Long id) {
+        final Person result = findOne(id);
+        if (result == null) {
+            throw new EntityNotFoundException(String.format("Person %s not found!", id));
+        }
+        return result;
     }
 }

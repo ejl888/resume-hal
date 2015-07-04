@@ -9,4 +9,8 @@ public interface PersonService {
     Person findOneByUsername(String username);
 
     Iterable<Person> findAll();
+
+    Person findOne(Long id);
+
+    Person getPerson(Long id);
 }

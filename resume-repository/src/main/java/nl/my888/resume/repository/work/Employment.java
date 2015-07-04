@@ -50,4 +50,8 @@ public class Employment {
     public Person getEmployee() {
         return employee;
     }
+
+    public Long getId() {
+        return id;
+    }
 }

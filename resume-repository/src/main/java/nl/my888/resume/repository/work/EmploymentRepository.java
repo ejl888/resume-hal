@@ -6,4 +6,6 @@ import org.springframework.data.repository.CrudRepository;
  * Created by ejl on 04/07/15.
  */
 public interface EmploymentRepository extends CrudRepository<Employment, Long> {
+
+    Employment findOneByPersonIdAndOrganizationId(Long personId, Long organizationId);
 }

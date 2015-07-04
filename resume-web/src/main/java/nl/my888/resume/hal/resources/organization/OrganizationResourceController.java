@@ -1,7 +1,5 @@
 package nl.my888.resume.hal.resources.organization;
 
-import javax.persistence.EntityNotFoundException;
-
 import nl.my888.resume.repository.organizations.Organization;
 import nl.my888.resume.services.organization.OrganizationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,7 +50,7 @@ public class OrganizationResourceController {
     @ResponseBody
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<OrganizationResource> read(@PathVariable("id") Long id) {
-        final Organization organization = getExistingOrganization(id);
+        final Organization organization = organizationService.getOrganization(id);
 
         return new ResponseEntity<>(organizationResourceAssembler.toResource(organization), HttpStatus.OK);
     }
@@ -69,7 +67,7 @@ public class OrganizationResourceController {
             @PathVariable("id") Long id,
             @RequestBody OrganizationResource organizationResource) {
 
-        final Organization organization = getExistingOrganization(id);
+        final Organization organization = organizationService.getOrganization(id);
 
         // TODO merge resource
         organization.setName(organizationResource.getName());
@@ -77,14 +75,6 @@ public class OrganizationResourceController {
         final Organization savedOrganization = organizationService.save(organization);
 
         return new ResponseEntity<>(organizationResourceAssembler.toResource(savedOrganization), HttpStatus.OK);
-    }
-
-    private Organization getExistingOrganization(Long id) {
-        Organization result = organizationService.findOne(id);
-        if (result == null) {
-            throw new EntityNotFoundException(String.format("Organization %s not found!", id));
-        }
-        return result;
     }
 
 }
