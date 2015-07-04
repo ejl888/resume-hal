@@ -1,4 +1,4 @@
-package nl.my888.resume.hal.resources.employment;
+package nl.my888.resume.hal.resources.people.job;
 
 import nl.my888.resume.repository.work.Employment;
 import nl.my888.springframework.hateoas.links.ProfileLink;

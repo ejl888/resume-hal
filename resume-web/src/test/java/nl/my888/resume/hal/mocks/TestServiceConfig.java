@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import nl.my888.resume.services.organization.OrganizationService;
 import nl.my888.resume.services.people.PersonService;
+import nl.my888.resume.services.work.EmploymentService;
 import org.easymock.EasyMock;
 import org.springframework.beans.factory.config.CustomScopeConfigurer;
 import org.springframework.context.annotation.Bean;
@@ -26,6 +27,11 @@ public class TestServiceConfig {
     @Bean
     public OrganizationService organizationService() {
         return EasyMock.createMock(OrganizationService.class);
+    }
+
+    @Bean
+    public EmploymentService employmentService() {
+        return EasyMock.createMock(EmploymentService.class);
     }
 
     @Bean

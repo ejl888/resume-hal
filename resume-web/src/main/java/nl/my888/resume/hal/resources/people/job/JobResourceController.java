@@ -1,14 +1,9 @@
-package nl.my888.resume.hal.resources.employment;
+package nl.my888.resume.hal.resources.people.job;
 
-import javax.persistence.EntityNotFoundException;
-
-import nl.my888.resume.repository.organizations.Organization;
-import nl.my888.resume.repository.people.Person;
 import nl.my888.resume.repository.work.Employment;
-import nl.my888.resume.services.organization.OrganizationService;
-import nl.my888.resume.services.people.PersonService;
 import nl.my888.resume.services.work.EmploymentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Resources;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -16,15 +11,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
+
 @Controller
 @RequestMapping("/persons")
 public class JobResourceController {
 
-    @Autowired
-    private OrganizationService organizationService;
-
-    @Autowired
-    private PersonService personService;
+    private static final String JOB_ID_TEMPLATE = "/{personId}/jobs/{organizationId}";
 
     @Autowired
     private EmploymentService employmentService;
@@ -33,22 +26,19 @@ public class JobResourceController {
     private JobResourceAssembler jobResourceAssembler;
 
 
-    @RequestMapping(value = "/{personId}/employers/{organizationId}", method = RequestMethod.PUT)
+    @RequestMapping(value = JOB_ID_TEMPLATE, method = RequestMethod.PUT)
     public ResponseEntity<JobResource> update(
             @PathVariable("personId") Long personId,
             @PathVariable("organizationId") Long organizationId) {
 
-        final Organization organization = organizationService.getOrganization(organizationId);
-        final Person person = personService.getPerson(personId);
-
-        final Employment job = new Employment(person, organization);
+        final Employment job = employmentService.findOrCreateEmployment(personId, organizationId);
 
         final Employment savedJob = employmentService.save(job);
 
         return new ResponseEntity<>(jobResourceAssembler.toResource(savedJob), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{personId}/employers/{organizationId}", method = RequestMethod.GET)
+    @RequestMapping(value = JOB_ID_TEMPLATE, method = RequestMethod.GET)
     public ResponseEntity<JobResource> read(
             @PathVariable("personId") Long personId,
             @PathVariable("organizationId") Long organizationId) {
@@ -58,4 +48,13 @@ public class JobResourceController {
         return new ResponseEntity<>(jobResourceAssembler.toResource(job), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/{personId}/jobs", method = RequestMethod.GET)
+    public ResponseEntity<Resources<JobResource>> jobs(
+            @PathVariable("personId") Long personId) {
+
+        final Iterable<Employment> jobs = employmentService.findEmploymentsByPerson(personId);
+        return new ResponseEntity<>(
+                jobResourceAssembler.toResourcesForMethod(methodOn(getClass()).jobs(personId), jobs),
+                HttpStatus.OK);
+    }
 }

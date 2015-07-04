@@ -64,7 +64,7 @@ public class OrganizationResourceControllerTest extends MockMvcTest {
     public void testGet() throws Exception {
 
         Organization givenOrganization = createValidOrganization(1L);
-        expect(mockOrganizationService.findOne(givenOrganization.getId()))
+        expect(mockOrganizationService.getOrganization(givenOrganization.getId()))
                 .andReturn(givenOrganization).once();
         replay(mockOrganizationService);
 
@@ -81,7 +81,7 @@ public class OrganizationResourceControllerTest extends MockMvcTest {
         final String newPersonContent = "{ \"name\": \"888ict\" }";
 
         Organization givenOrganization = createValidOrganization(1L);
-        expect(mockOrganizationService.findOne(givenOrganization.getId()))
+        expect(mockOrganizationService.getOrganization(givenOrganization.getId()))
                 .andReturn(givenOrganization).once();
         expect(mockOrganizationService.save(anyObject(Organization.class)))
                 .andAnswer(new EchoArgumentAnswer<Organization>()).once();
@@ -112,7 +112,8 @@ public class OrganizationResourceControllerTest extends MockMvcTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(newOrganizationContent))
                 .andExpect(rootResource()
-                                .havingSelfLink("/organizations/{id}", answer.answered().getId())
+                                .havingSelfLink("/organizations/{id}", answer.answered()
+                                        .getId())
                                 .havingProfile(OrganizationResource.PROFILE_URI)
                                 .havingProperty("name", equalTo("888ict"))
                 );

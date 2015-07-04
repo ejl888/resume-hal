@@ -1,5 +1,7 @@
 package nl.my888.resume.hal.resources.people;
 
+import nl.my888.resume.hal.constants.ResumeRelationTypes;
+import nl.my888.resume.hal.resources.people.job.JobResourceController;
 import nl.my888.resume.repository.people.Person;
 import nl.my888.springframework.hateoas.links.ProfileLink;
 import org.springframework.hateoas.Link;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import static nl.my888.resume.hal.constants.ProfileUtil.toProfileUri;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 @Component
 public class PersonResourceAssembler extends ResourceAssemblerSupport<Person, PersonResource> {
@@ -26,7 +29,12 @@ public class PersonResourceAssembler extends ResourceAssemblerSupport<Person, Pe
 
     @Override
     public PersonResource toResource(Person entity) {
+        // FIXME only valid for users!
         final PersonResource result = createResourceWithId(entity.getUsername(), entity);
+
+
+        result.add(linkTo(methodOn(JobResourceController.class).jobs(entity.getId())).withRel(ResumeRelationTypes.JOBS));
+
 
         return result;
     }

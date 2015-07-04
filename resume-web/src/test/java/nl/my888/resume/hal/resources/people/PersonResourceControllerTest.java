@@ -10,6 +10,7 @@ import nl.my888.resume.repository.people.Person;
 import nl.my888.resume.repository.people.PersonalName;
 import nl.my888.resume.services.people.PersonService;
 import nl.my888.test.easymock.EchoArgumentAnswer;
+import nl.my888.test.easymock.PersistedEchoArgumentAnswer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,9 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import static nl.my888.resume.hal.constants.ResumeRelationTypes.asCurriedRelation;
 import static nl.my888.resume.repository.people.PersonFixtures.createValidPerson;
+import static nl.my888.resume.repository.people.PersonFixtures.persisted;
 import static nl.my888.springframework.test.web.servlet.halmatchers.RootResourceMatcher.rootResource;
+import static nl.my888.test.easymock.idgenerators.IdGenerators.longIdGenerator;
 import static org.easymock.EasyMock.anyObject;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.EasyMock.replay;
@@ -41,8 +44,8 @@ public class PersonResourceControllerTest extends MockMvcTest {
     @Test
     public void testGetAll() throws Exception {
 
-        Person givenPerson1 = createValidPerson("MrT");
-        Person givenPerson2 = createValidPerson("MsTrex");
+        Person givenPerson1 = persisted(createValidPerson("MrT"));
+        Person givenPerson2 = persisted(createValidPerson("MsTrex"));
 
         expect(mockPersonService.findAll())
                 .andReturn(Arrays.asList(givenPerson1, givenPerson2))
@@ -61,8 +64,8 @@ public class PersonResourceControllerTest extends MockMvcTest {
     @Test
     public void testGet() throws Exception {
 
-        Person givenPerson = createValidPerson("MrT");
-        expect(mockPersonService.findOneByUsername(anyObject(String.class))).andReturn(givenPerson).once();
+        Person givenPerson = persisted(createValidPerson("MrT"));
+        expect(mockPersonService.getPersonByUsername(givenPerson.getUsername())).andReturn(givenPerson).once();
         replay(mockPersonService);
 
         final PersonalName givenPersonName = givenPerson.getName();
@@ -83,8 +86,8 @@ public class PersonResourceControllerTest extends MockMvcTest {
     public void testPutExistingUser() throws Exception {
         final String newPersonContent = "{ \"name\": {\"fullName\": \"M. van der Laan\" } }";
 
-        Person givenPerson = createValidPerson("ejl888");
-        expect(mockPersonService.findOneByUsername(anyObject(String.class))).andReturn(givenPerson).once();
+        Person givenPerson = persisted(createValidPerson("ejl888"));
+        expect(mockPersonService.findOneByUsername(givenPerson.getUsername())).andReturn(givenPerson).once();
         expect(mockPersonService.save(anyObject(Person.class))).andAnswer(new EchoArgumentAnswer<Person>()).once();
         replay(mockPersonService);
 
@@ -105,7 +108,9 @@ public class PersonResourceControllerTest extends MockMvcTest {
         final String newPersonContent = "{ \"name\": {\"fullName\": \"M. van der Laan\" } }";
 
         expect(mockPersonService.findOneByUsername(anyObject(String.class))).andReturn(null).once();
-        expect(mockPersonService.save(anyObject(Person.class))).andAnswer(new EchoArgumentAnswer<Person>()).once();
+        expect(mockPersonService.save(anyObject(Person.class)))
+                .andAnswer(new PersistedEchoArgumentAnswer<>(Person.class, longIdGenerator()))
+                .once();
         replay(mockPersonService);
 
         perform(put("/people/users/ejl888")

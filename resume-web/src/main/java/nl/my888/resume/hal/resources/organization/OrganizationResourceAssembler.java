@@ -28,6 +28,8 @@ public class OrganizationResourceAssembler extends ResourceAssemblerSupport<Orga
     public OrganizationResource toResource(Organization entity) {
         final OrganizationResource result = createResourceWithId(entity.getId(), entity);
 
+        // no relations yet.
+
         return result;
     }
 
@@ -35,6 +37,7 @@ public class OrganizationResourceAssembler extends ResourceAssemblerSupport<Orga
     public Resources<OrganizationResource> toResourcesForMethod(Object dummyInvocation, Iterable<Organization> entities) {
         final Resources<OrganizationResource> result = new Resources<>(toResources(entities));
 
+        // metadata links
         result.add(getResourcesProfileLink());
         result.add(linkTo(dummyInvocation).withSelfRel());
 

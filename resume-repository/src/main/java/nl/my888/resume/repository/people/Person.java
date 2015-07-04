@@ -34,8 +34,11 @@ public class Person {
     private String username;
 
 
-    protected Person() {
-        // JPA only!
+    public Person() {
+    }
+
+    void setId(Long id) {
+        this.id = id;
     }
 
     public Long getId() {

@@ -1,4 +1,4 @@
-package nl.my888.resume.hal.resources.employment;
+package nl.my888.resume.hal.resources.people.job;
 
 import java.net.URI;
 

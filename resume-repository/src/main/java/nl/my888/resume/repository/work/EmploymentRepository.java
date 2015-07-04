@@ -7,5 +7,7 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface EmploymentRepository extends CrudRepository<Employment, Long> {
 
-    Employment findOneByPersonIdAndOrganizationId(Long personId, Long organizationId);
+    Employment findOneByEmployeeIdAndEmployerId(Long personId, Long organizationId);
+
+    Iterable<Employment> findEmploymentsByEmployeeId(Long personId);
 }

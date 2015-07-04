@@ -1,9 +1,16 @@
 package nl.my888.resume.repository.people;
 
-public class PersonFixtures {
+import nl.my888.test.easymock.idgenerators.IdGenerators;
+
+public final class PersonFixtures {
 
     private PersonFixtures() {
 
+    }
+
+    public static Person persisted(Person person) {
+        person.setId(IdGenerators.longIdGenerator().newId());
+        return person;
     }
 
     public static Person createValidPerson(String username) {

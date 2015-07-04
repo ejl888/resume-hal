@@ -10,4 +10,8 @@ public interface EmploymentService {
     Employment save(Employment employment);
 
     Employment getEmployment(Long personId, Long organizationId);
+
+    Employment findOrCreateEmployment(Long personId, Long organizationId);
+
+    Iterable<Employment> findEmploymentsByPerson(Long personId);
 }
