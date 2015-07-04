@@ -10,7 +10,7 @@ import nl.my888.resume.repository.people.Person;
 import nl.my888.resume.repository.people.PersonalName;
 import nl.my888.resume.services.people.PersonService;
 import nl.my888.test.easymock.EchoArgumentAnswer;
-import nl.my888.test.easymock.PersistedEchoArgumentAnswer;
+import nl.my888.test.easymock.PersistedArgumentAnswer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,7 +65,9 @@ public class PersonResourceControllerTest extends MockMvcTest {
     public void testGet() throws Exception {
 
         Person givenPerson = persisted(createValidPerson("MrT"));
-        expect(mockPersonService.getPersonByUsername(givenPerson.getUsername())).andReturn(givenPerson).once();
+        expect(mockPersonService.getPersonByUsername(givenPerson.getUsername()))
+                .andReturn(givenPerson)
+                .once();
         replay(mockPersonService);
 
         final PersonalName givenPersonName = givenPerson.getName();
@@ -87,8 +89,12 @@ public class PersonResourceControllerTest extends MockMvcTest {
         final String newPersonContent = "{ \"name\": {\"fullName\": \"M. van der Laan\" } }";
 
         Person givenPerson = persisted(createValidPerson("ejl888"));
-        expect(mockPersonService.findOneByUsername(givenPerson.getUsername())).andReturn(givenPerson).once();
-        expect(mockPersonService.save(anyObject(Person.class))).andAnswer(new EchoArgumentAnswer<Person>()).once();
+        expect(mockPersonService.findOneByUsername(givenPerson.getUsername()))
+                .andReturn(givenPerson)
+                .once();
+        expect(mockPersonService.save(anyObject(Person.class)))
+                .andAnswer(new EchoArgumentAnswer<Person>())
+                .once();
         replay(mockPersonService);
 
         perform(put("/people/users/ejl888")
@@ -107,9 +113,11 @@ public class PersonResourceControllerTest extends MockMvcTest {
     public void testPutNewUser() throws Exception {
         final String newPersonContent = "{ \"name\": {\"fullName\": \"M. van der Laan\" } }";
 
-        expect(mockPersonService.findOneByUsername(anyObject(String.class))).andReturn(null).once();
+        expect(mockPersonService.findOneByUsername(anyObject(String.class)))
+                .andReturn(null)
+                .once();
         expect(mockPersonService.save(anyObject(Person.class)))
-                .andAnswer(new PersistedEchoArgumentAnswer<>(Person.class, longIdGenerator()))
+                .andAnswer(new PersistedArgumentAnswer<>(Person.class, longIdGenerator()))
                 .once();
         replay(mockPersonService);
 

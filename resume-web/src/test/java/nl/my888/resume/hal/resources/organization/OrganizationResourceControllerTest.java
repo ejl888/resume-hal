@@ -9,7 +9,7 @@ import nl.my888.resume.hal.mocks.TestServiceConfig;
 import nl.my888.resume.repository.organizations.Organization;
 import nl.my888.resume.services.organization.OrganizationService;
 import nl.my888.test.easymock.EchoArgumentAnswer;
-import nl.my888.test.easymock.PersistedEchoArgumentAnswer;
+import nl.my888.test.easymock.PersistedArgumentAnswer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,7 +102,7 @@ public class OrganizationResourceControllerTest extends MockMvcTest {
     public void testCreateNeworganization() throws Exception {
         final String newOrganizationContent = "{ \"name\": \"888ict\" }";
 
-        final PersistedEchoArgumentAnswer<Organization, Long> answer = createOrganizationPersistedArgumentAnswer();
+        final PersistedArgumentAnswer<Organization, Long> answer = createOrganizationPersistedArgumentAnswer();
         expect(mockOrganizationService.save(anyObject(Organization.class)))
                 .andAnswer(answer)
                 .once();
@@ -120,8 +120,8 @@ public class OrganizationResourceControllerTest extends MockMvcTest {
 
     }
 
-    private static PersistedEchoArgumentAnswer<Organization, Long> createOrganizationPersistedArgumentAnswer() {
-        return new PersistedEchoArgumentAnswer<>(Organization.class, longIdGenerator());
+    private static PersistedArgumentAnswer<Organization, Long> createOrganizationPersistedArgumentAnswer() {
+        return new PersistedArgumentAnswer<>(Organization.class, longIdGenerator());
     }
 
 }
