@@ -20,7 +20,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import static nl.my888.resume.hal.constants.ResumeRelationTypes.asCurriedRelation;
-import static nl.my888.resume.repository.PersonFixtures.createValidPerson;
+import static nl.my888.resume.repository.people.PersonFixtures.createValidPerson;
 import static nl.my888.springframework.test.web.servlet.halmatchers.RootResourceMatcher.rootResource;
 import static org.easymock.EasyMock.anyObject;
 import static org.easymock.EasyMock.expect;

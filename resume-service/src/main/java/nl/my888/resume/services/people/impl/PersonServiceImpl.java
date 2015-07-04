@@ -1,4 +1,4 @@
-package nl.my888.resume.services.impl.people;
+package nl.my888.resume.services.people.impl;
 
 import nl.my888.resume.repository.people.PeopleRepository;
 import nl.my888.resume.repository.people.Person;

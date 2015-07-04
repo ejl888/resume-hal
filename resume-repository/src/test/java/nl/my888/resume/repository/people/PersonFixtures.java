@@ -1,7 +1,4 @@
-package nl.my888.resume.repository;
-
-import nl.my888.resume.repository.people.Person;
-import nl.my888.resume.repository.people.PersonalName;
+package nl.my888.resume.repository.people;
 
 public class PersonFixtures {
 

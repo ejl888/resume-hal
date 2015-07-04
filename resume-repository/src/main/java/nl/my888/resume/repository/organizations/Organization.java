@@ -44,4 +44,9 @@ public class Organization {
     public Collection<Address> getAddresses() {
         return addresses;
     }
+
+    // test only!
+    void setId(Long id) {
+        this.id = id;
+    }
 }

@@ -2,6 +2,7 @@ package nl.my888.resume.hal.mocks;
 
 import java.util.HashMap;
 
+import nl.my888.resume.services.organization.OrganizationService;
 import nl.my888.resume.services.people.PersonService;
 import org.easymock.EasyMock;
 import org.springframework.beans.factory.config.CustomScopeConfigurer;
@@ -20,6 +21,11 @@ public class TestServiceConfig {
     @Bean
     public PersonService personService() {
         return EasyMock.createMock(PersonService.class);
+    }
+
+    @Bean
+    public OrganizationService organizationService() {
+        return EasyMock.createMock(OrganizationService.class);
     }
 
     @Bean
