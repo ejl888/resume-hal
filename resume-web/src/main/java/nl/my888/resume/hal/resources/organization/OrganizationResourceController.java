@@ -28,7 +28,7 @@ public class OrganizationResourceController {
     @Autowired
     private OrganizationResourceAssembler organizationResourceAssembler;
 
-    @RequestMapping()
+    @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<Resources<OrganizationResource>> find() {
         final Iterable<Organization> users = organizationService.findAll();
 
@@ -37,9 +37,21 @@ public class OrganizationResourceController {
                 HttpStatus.OK);
     }
 
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<OrganizationResource> create(@RequestBody OrganizationResource organizationResource) {
+        final Organization organization = new Organization();
+
+        // TODO merge resource
+        organization.setName(organizationResource.getName());
+
+        final Organization savedOrganization = organizationService.save(organization);
+
+        return new ResponseEntity<>(organizationResourceAssembler.toResource(savedOrganization), HttpStatus.CREATED);
+    }
+
     @ResponseBody
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<OrganizationResource> get(@PathVariable("id") Long id) {
+    public ResponseEntity<OrganizationResource> read(@PathVariable("id") Long id) {
         final Organization organization = getExistingOrganization(id);
 
         return new ResponseEntity<>(organizationResourceAssembler.toResource(organization), HttpStatus.OK);

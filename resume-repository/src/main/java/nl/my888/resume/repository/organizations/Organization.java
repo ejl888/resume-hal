@@ -25,7 +25,7 @@ public class Organization {
     @ElementCollection
     private Collection<Address> addresses = new ArrayList<>();
 
-    protected Organization() {
+    public Organization() {
         // JPA only!
     }
 
