@@ -65,7 +65,7 @@ public class PersonResourceController {
     }
 
     private Person getOrCreateUserWithUsername(@PathVariable("username") String username) {
-        Person result = getUser(username);
+        Person result = personService.findOneByUsername(username);
         if (result == null) {
             result = new Person(username);
         }
@@ -73,7 +73,7 @@ public class PersonResourceController {
     }
 
     private Person getUser(String username) {
-        return personService.findOneByUsername(username);
+        return personService.getPersonByUsername(username);
     }
 
 }

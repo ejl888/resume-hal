@@ -13,4 +13,6 @@ public interface PersonService {
     Person findOne(Long id);
 
     Person getPerson(Long id);
+
+    Person getPersonByUsername(String username);
 }

@@ -44,4 +44,13 @@ public class PersonServiceImpl implements PersonService {
         }
         return result;
     }
+
+    @Override
+    public Person getPersonByUsername(String username) {
+        final Person result = findOneByUsername(username);
+        if (result == null) {
+            throw new EntityNotFoundException(String.format("User %s not found!", username));
+        }
+        return result;
+    }
 }
