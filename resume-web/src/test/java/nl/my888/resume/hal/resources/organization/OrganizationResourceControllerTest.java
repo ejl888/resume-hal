@@ -96,8 +96,8 @@ public class OrganizationResourceControllerTest extends MockMvcTest {
 //    public void testPutNewUser() throws Exception {
 //        final String newPersonContent = "{ \"name\": {\"fullName\": \"M. van der Laan\" } }";
 //
-//        expect(mockOrganizationService.getPersonByUsername(anyObject(String.class))).andReturn(null).once();
-//        expect(mockOrganizationService.savePerson(anyObject(Person.class))).andAnswer(new EchoArgumentAnswer<Person>()).once();
+//        expect(mockOrganizationService.findOneByUsername(anyObject(String.class))).andReturn(null).once();
+//        expect(mockOrganizationService.save(anyObject(Person.class))).andAnswer(new EchoArgumentAnswer<Person>()).once();
 //        replay(mockOrganizationService);
 //
 //        perform(put("/people/users/ejl888")

@@ -62,7 +62,7 @@ public class PersonResourceControllerTest extends MockMvcTest {
     public void testGet() throws Exception {
 
         Person givenPerson = createValidPerson("MrT");
-        expect(mockPersonService.getPersonByUsername(anyObject(String.class))).andReturn(givenPerson).once();
+        expect(mockPersonService.findOneByUsername(anyObject(String.class))).andReturn(givenPerson).once();
         replay(mockPersonService);
 
         final PersonalName givenPersonName = givenPerson.getName();
@@ -84,8 +84,8 @@ public class PersonResourceControllerTest extends MockMvcTest {
         final String newPersonContent = "{ \"name\": {\"fullName\": \"M. van der Laan\" } }";
 
         Person givenPerson = createValidPerson("ejl888");
-        expect(mockPersonService.getPersonByUsername(anyObject(String.class))).andReturn(givenPerson).once();
-        expect(mockPersonService.savePerson(anyObject(Person.class))).andAnswer(new EchoArgumentAnswer<Person>()).once();
+        expect(mockPersonService.findOneByUsername(anyObject(String.class))).andReturn(givenPerson).once();
+        expect(mockPersonService.save(anyObject(Person.class))).andAnswer(new EchoArgumentAnswer<Person>()).once();
         replay(mockPersonService);
 
         perform(put("/people/users/ejl888")
@@ -104,8 +104,8 @@ public class PersonResourceControllerTest extends MockMvcTest {
     public void testPutNewUser() throws Exception {
         final String newPersonContent = "{ \"name\": {\"fullName\": \"M. van der Laan\" } }";
 
-        expect(mockPersonService.getPersonByUsername(anyObject(String.class))).andReturn(null).once();
-        expect(mockPersonService.savePerson(anyObject(Person.class))).andAnswer(new EchoArgumentAnswer<Person>()).once();
+        expect(mockPersonService.findOneByUsername(anyObject(String.class))).andReturn(null).once();
+        expect(mockPersonService.save(anyObject(Person.class))).andAnswer(new EchoArgumentAnswer<Person>()).once();
         replay(mockPersonService);
 
         perform(put("/people/users/ejl888")

@@ -15,12 +15,12 @@ public class PersonServiceImpl implements PersonService {
     private PeopleRepository peopleRepository;
 
     @Override
-    public Person savePerson(Person person) {
+    public Person save(Person person) {
         return peopleRepository.save(person);
     }
 
     @Override
-    public Person getPersonByUsername(String username) {
+    public Person findOneByUsername(String username) {
         return peopleRepository.findByUsername(username);
     }
 

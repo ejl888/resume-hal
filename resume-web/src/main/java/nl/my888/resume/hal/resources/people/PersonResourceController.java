@@ -59,7 +59,7 @@ public class PersonResourceController {
 
         person.setName(personResource.getName());
 
-        final Person savedPerson = personService.savePerson(person);
+        final Person savedPerson = personService.save(person);
 
         return new ResponseEntity<>(personResourceAssembler.toResource(savedPerson), HttpStatus.OK);
     }
@@ -73,7 +73,7 @@ public class PersonResourceController {
     }
 
     private Person getUser(String username) {
-        return personService.getPersonByUsername(username);
+        return personService.findOneByUsername(username);
     }
 
 }
