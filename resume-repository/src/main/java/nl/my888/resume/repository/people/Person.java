@@ -64,4 +64,12 @@ public class Person {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
 }

@@ -5,7 +5,7 @@ import nl.my888.test.easymock.idgenerators.IdGenerators;
 public final class PersonFixtures {
 
     private PersonFixtures() {
-
+        // util
     }
 
     public static Person persisted(Person person) {

@@ -24,7 +24,7 @@ public class PersonResourceAssembler extends ResourceAssemblerSupport<Person, Pe
 
     @Override
     protected PersonResource instantiateResource(Person entity) {
-        return new PersonResource(entity.getName());
+        return new PersonResource(entity.getName(), entity.getBirthday());
     }
 
     @Override

@@ -102,7 +102,7 @@ public class OrganizationResourceControllerTest extends MockMvcTest {
     public void testCreateNeworganization() throws Exception {
         final String newOrganizationContent = "{ \"name\": \"888ict\" }";
 
-        final PersistedArgumentAnswer<Organization, Long> answer = createOrganizationPersistedArgumentAnswer();
+        final PersistedArgumentAnswer<Organization, Long> answer = createPersistedOrganizationArgumentAnswer();
         expect(mockOrganizationService.save(anyObject(Organization.class)))
                 .andAnswer(answer)
                 .once();
@@ -120,7 +120,7 @@ public class OrganizationResourceControllerTest extends MockMvcTest {
 
     }
 
-    private static PersistedArgumentAnswer<Organization, Long> createOrganizationPersistedArgumentAnswer() {
+    private static PersistedArgumentAnswer<Organization, Long> createPersistedOrganizationArgumentAnswer() {
         return new PersistedArgumentAnswer<>(Organization.class, longIdGenerator());
     }
 
