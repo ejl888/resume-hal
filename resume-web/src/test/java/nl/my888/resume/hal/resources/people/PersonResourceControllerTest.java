@@ -85,6 +85,21 @@ public class PersonResourceControllerTest extends MockMvcTest {
     }
 
     @Test
+    public void testGetRelations() throws Exception {
+
+        Person givenPerson = persisted(createValidPerson("MrT"));
+        expect(mockPersonService.getPersonByUsername(givenPerson.getUsername()))
+                .andReturn(givenPerson)
+                .once();
+        replay(mockPersonService);
+
+        perform(get("/people/users/{username}", givenPerson.getUsername()))
+                .andExpect(rootResource()
+                                .linkedResource(ResumeRelationTypes.asCurriedRelation(ResumeRelationTypes.JOBS)).exists()
+                );
+    }
+
+    @Test
     public void testPutExistingUser() throws Exception {
         final String newPersonContent = "{ \"name\": {\"fullName\": \"M. van der Laan\" } }";
 

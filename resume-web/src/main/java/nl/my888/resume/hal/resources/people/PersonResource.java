@@ -18,6 +18,8 @@ public class PersonResource extends EmbeddedResourceSupport {
     public static final URI PROFILE_URI = ProfileUtil.toProfileUri("person");
 
     private final PersonalName name;
+
+    @JsonProperty()
     private final LocalDate birthday;
 
     @JsonCreator

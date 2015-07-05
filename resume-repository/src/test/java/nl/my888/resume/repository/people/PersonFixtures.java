@@ -1,8 +1,14 @@
 package nl.my888.resume.repository.people;
 
 import nl.my888.test.easymock.idgenerators.IdGenerators;
+import org.joda.time.LocalDate;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 public final class PersonFixtures {
+
+    private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormat.forPattern("dd/MM/yyyy");
+    private static final LocalDate BIRTHDAY_VALID_PERSON = LocalDate.parse("24/09/1970", DATE_TIME_FORMATTER);
 
     private PersonFixtures() {
         // util
@@ -23,6 +29,8 @@ public final class PersonFixtures {
         personalName.setSurnamePrefix("van 't");
 
         result.setName(personalName);
+
+        result.setBirthday(BIRTHDAY_VALID_PERSON);
 
         return result;
     }

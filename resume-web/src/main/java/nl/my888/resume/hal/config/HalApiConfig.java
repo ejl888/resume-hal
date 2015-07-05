@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.joda.JodaModule;
 import nl.my888.springframework.hateoas.configuration.HalHandlerInstantiator;
 import nl.my888.springframework.hateoas.resource.EmbeddedResourceSupport;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +55,11 @@ public class HalApiConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        halObjectMapper.configure(com.fasterxml.jackson.databind.SerializationFeature.
+                WRITE_DATES_AS_TIMESTAMPS , false);
+
+        halObjectMapper.registerModule(new JodaModule());
+
         halObjectMapper.registerModule(new Jackson2HalModule());
         halObjectMapper.setHandlerInstantiator(new HalHandlerInstantiator(relProvider, CURIE_PROVIDER));
 
