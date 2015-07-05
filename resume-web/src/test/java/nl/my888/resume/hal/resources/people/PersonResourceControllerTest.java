@@ -2,6 +2,7 @@ package nl.my888.resume.hal.resources.people;
 
 import java.util.Arrays;
 
+import nl.my888.resume.hal.common.APISpecConstants;
 import nl.my888.resume.hal.common.MockMvcTest;
 import nl.my888.resume.hal.config.HalApiConfig;
 import nl.my888.resume.hal.constants.ResumeRelationTypes;
@@ -75,6 +76,7 @@ public class PersonResourceControllerTest extends MockMvcTest {
                 .andExpect(rootResource()
                                 .havingSelfLink("/people/users/{id}", givenPerson.getUsername())
                                 .havingProfile(PersonResource.PROFILE_URI)
+                                .havingProperty("birthday", equalTo(givenPerson.getBirthday().toString(APISpecConstants.ISO_8601_DATE_FORMAT)))
                                 .nestedObject("name")
                                 .havingProperty("fullName", equalTo(givenPersonName.getFullName()))
                                 .havingProperty("givenName", equalTo(givenPersonName.getGivenName()))
@@ -95,7 +97,8 @@ public class PersonResourceControllerTest extends MockMvcTest {
 
         perform(get("/people/users/{username}", givenPerson.getUsername()))
                 .andExpect(rootResource()
-                                .linkedResource(ResumeRelationTypes.asCurriedRelation(ResumeRelationTypes.JOBS)).exists()
+                                .linkedResource(ResumeRelationTypes.asCurriedRelation(ResumeRelationTypes.JOBS))
+                                .exists()
                 );
     }
 
