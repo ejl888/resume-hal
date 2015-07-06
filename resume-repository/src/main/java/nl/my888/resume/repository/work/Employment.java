@@ -54,4 +54,8 @@ public class Employment {
     public Long getId() {
         return id;
     }
+
+    void setId(Long id) {
+        this.id = id;
+    }
 }

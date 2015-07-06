@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 @Controller
-@RequestMapping("/persons")
+@RequestMapping("/people")
 public class JobResourceController {
 
     private static final String JOB_ID_TEMPLATE = "/{personId}/jobs/{organizationId}";

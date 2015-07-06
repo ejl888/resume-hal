@@ -19,9 +19,19 @@ public final class PersonFixtures {
         return person;
     }
 
-    public static Person createValidPerson(String username) {
+    public static Person createValidPerson() {
+        final Person result = new Person();
+
+        return setFields(result);
+    }
+
+    public static Person createValidUser(String username) {
         final Person result = new Person(username);
 
+        return setFields(result);
+    }
+
+    private static Person setFields(Person result) {
         final PersonalName personalName = new PersonalName();
         personalName.setFullName("Mr. T van 't Tester");
         personalName.setGivenName("Ted");
@@ -34,5 +44,6 @@ public final class PersonFixtures {
 
         return result;
     }
+
 
 }

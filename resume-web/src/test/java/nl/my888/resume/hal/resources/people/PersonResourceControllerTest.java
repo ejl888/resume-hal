@@ -22,7 +22,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import static nl.my888.resume.hal.constants.ResumeRelationTypes.asCurriedRelation;
-import static nl.my888.resume.repository.people.PersonFixtures.createValidPerson;
+import static nl.my888.resume.repository.people.PersonFixtures.createValidUser;
 import static nl.my888.resume.repository.people.PersonFixtures.persisted;
 import static nl.my888.springframework.test.web.servlet.halmatchers.RootResourceMatcher.rootResource;
 import static nl.my888.test.easymock.idgenerators.IdGenerators.longIdGenerator;
@@ -45,8 +45,8 @@ public class PersonResourceControllerTest extends MockMvcTest {
     @Test
     public void testGetAll() throws Exception {
 
-        Person givenPerson1 = persisted(createValidPerson("MrT"));
-        Person givenPerson2 = persisted(createValidPerson("MsTrex"));
+        Person givenPerson1 = persisted(createValidUser("MrT"));
+        Person givenPerson2 = persisted(createValidUser("MsTrex"));
 
         expect(mockPersonService.findAll())
                 .andReturn(Arrays.asList(givenPerson1, givenPerson2))
@@ -65,7 +65,7 @@ public class PersonResourceControllerTest extends MockMvcTest {
     @Test
     public void testGet() throws Exception {
 
-        Person givenPerson = persisted(createValidPerson("MrT"));
+        Person givenPerson = persisted(createValidUser("MrT"));
         expect(mockPersonService.getPersonByUsername(givenPerson.getUsername()))
                 .andReturn(givenPerson)
                 .once();
@@ -89,7 +89,7 @@ public class PersonResourceControllerTest extends MockMvcTest {
     @Test
     public void testGetRelations() throws Exception {
 
-        Person givenPerson = persisted(createValidPerson("MrT"));
+        Person givenPerson = persisted(createValidUser("MrT"));
         expect(mockPersonService.getPersonByUsername(givenPerson.getUsername()))
                 .andReturn(givenPerson)
                 .once();
@@ -106,7 +106,7 @@ public class PersonResourceControllerTest extends MockMvcTest {
     public void testPutExistingUser() throws Exception {
         final String newPersonContent = "{ \"name\": {\"fullName\": \"M. van der Laan\" } }";
 
-        Person givenPerson = persisted(createValidPerson("ejl888"));
+        Person givenPerson = persisted(createValidUser("ejl888"));
         expect(mockPersonService.findOneByUsername(givenPerson.getUsername()))
                 .andReturn(givenPerson)
                 .once();
