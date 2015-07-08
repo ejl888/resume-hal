@@ -59,7 +59,6 @@ public class EmploymentResourceAssembler extends ResourceAssemblerSupport<Employ
         return entityLinks.linkForSingleResource(employee.getClass(), employee.getId()).withRel(ResumeRelationTypes.EMPLOYEE);
     }
 
-
     public Resources<EmploymentResource> toResourcesForMethod(Object dummyInvocation, Iterable<Employment> entities) {
         final Resources<EmploymentResource> result = new Resources<>(toResources(entities));
 

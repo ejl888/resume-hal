@@ -12,7 +12,7 @@ import org.springframework.hateoas.core.Relation;
 @Relation(value = ResumeRelationTypes.EMPLOYMENT, collectionRelation = ResumeRelationTypes.ITEMS)
 public class EmploymentResource extends EmbeddedResourceSupport {
 
-    public static final URI PROFILE_URI = ProfileUtil.toProfileUri("employments");
+    public static final URI PROFILE_URI = ProfileUtil.toProfileUri("employment");
 
     @JsonCreator
     public EmploymentResource() {
