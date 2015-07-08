@@ -56,4 +56,13 @@ public class EmploymentServiceImpl implements EmploymentService {
     public Iterable<Employment> findEmploymentsByPerson(Long personId) {
         return employmentRepository.findEmploymentsByEmployeeId(personId);
     }
+
+    @Override
+    public Employment getEmployment(Long id) {
+        final Employment result = employmentRepository.findOne(id);
+        if (result == null) {
+            throw new EntityNotFoundException(String.format("Employment %s not found! ", id));
+        }
+        return result;
+    }
 }

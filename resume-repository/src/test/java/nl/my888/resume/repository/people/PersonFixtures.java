@@ -14,7 +14,7 @@ public final class PersonFixtures {
         // util
     }
 
-    public static Person persisted(Person person) {
+    public static Person persistedPerson(Person person) {
         person.setId(IdGenerators.longIdGenerator().newId());
         return person;
     }

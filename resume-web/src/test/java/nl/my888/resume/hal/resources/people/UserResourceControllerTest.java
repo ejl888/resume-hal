@@ -1,7 +1,5 @@
 package nl.my888.resume.hal.resources.people;
 
-import java.util.Arrays;
-
 import nl.my888.resume.hal.common.APISpecConstants;
 import nl.my888.resume.hal.common.MockMvcTest;
 import nl.my888.resume.hal.config.HalApiConfig;
@@ -21,8 +19,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import static nl.my888.resume.hal.constants.ResumeRelationTypes.asCurriedRelation;
-import static nl.my888.resume.repository.people.PersonFixtures.createValidPerson;
 import static nl.my888.resume.repository.people.PersonFixtures.createValidUser;
 import static nl.my888.resume.repository.people.PersonFixtures.persistedPerson;
 import static nl.my888.springframework.test.web.servlet.halmatchers.RootResourceMatcher.rootResource;
@@ -39,42 +35,23 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 @WebAppConfiguration
 @ContextConfiguration(classes = {HalApiConfig.class, TestServiceConfig.class})
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-public class PersonResourceControllerTest extends MockMvcTest {
+public class UserResourceControllerTest extends MockMvcTest {
 
     @Autowired
     private PersonService mockPersonService;
-
-    @Test
-    public void testGetAll() throws Exception {
-
-        Person givenPerson1 = persistedPerson(createValidUser("MrT"));
-        Person givenPerson2 = persistedPerson(createValidPerson());
-
-        expect(mockPersonService.findAll())
-                .andReturn(Arrays.asList(givenPerson1, givenPerson2))
-                .once();
-        replay(mockPersonService);
-
-        perform(get("/people"))
-                .andExpect(rootResource()
-                                .havingProfile(HalApiConfig.COLLECTION_PROFILE)
-                                .embeddedResource(asCurriedRelation(ResumeRelationTypes.ITEMS))
-                                .havingSize(2)
-                );
-    }
 
 
     @Test
     public void testGet() throws Exception {
 
-        Person givenPerson = persistedPerson(createValidPerson());
-        expect(mockPersonService.getPerson(givenPerson.getId()))
+        Person givenPerson = persistedPerson(createValidUser("MrT"));
+        expect(mockPersonService.getPersonByUsername(givenPerson.getUsername()))
                 .andReturn(givenPerson)
                 .once();
         replay(mockPersonService);
 
         final PersonalName givenPersonName = givenPerson.getName();
-        perform(get("/people/{id}", givenPerson.getId()))
+        perform(get("/people/users/{username}", givenPerson.getUsername()))
                 .andExpect(rootResource()
                                 .havingSelfLink("/people/{id}", givenPerson.getId())
                                 .havingProfile(PersonResource.PROFILE_URI)

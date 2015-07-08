@@ -10,7 +10,7 @@ import nl.my888.test.easymock.idgenerators.IdGenerators;
 public class EmploymentFixtures {
 
 
-    public static Employment persisted(Employment employment) {
+    public static Employment persistedEmployment(Employment employment) {
         employment.setId(IdGenerators.longIdGenerator().newId());
         return employment;
     }

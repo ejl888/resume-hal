@@ -3,6 +3,7 @@ package nl.my888.resume.hal.resources.organization;
 import nl.my888.resume.repository.organizations.Organization;
 import nl.my888.resume.services.organization.OrganizationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.ExposesResourceFor;
 import org.springframework.hateoas.Resources;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -18,6 +19,7 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 @Controller
 @RequestMapping("/organizations")
+@ExposesResourceFor(Organization.class)
 public class OrganizationResourceController {
 
     @Autowired

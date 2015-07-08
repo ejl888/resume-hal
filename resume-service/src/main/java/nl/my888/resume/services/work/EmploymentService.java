@@ -14,4 +14,6 @@ public interface EmploymentService {
     Employment findOrCreateEmployment(Long personId, Long organizationId);
 
     Iterable<Employment> findEmploymentsByPerson(Long personId);
+
+    Employment getEmployment(Long id);
 }

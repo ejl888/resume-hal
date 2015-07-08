@@ -1,4 +1,4 @@
-package nl.my888.resume.hal.resources.people.job;
+package nl.my888.resume.hal.resources.employments;
 
 import java.net.URI;
 
@@ -9,13 +9,13 @@ import nl.my888.springframework.hateoas.links.ProfileLink;
 import nl.my888.springframework.hateoas.resource.EmbeddedResourceSupport;
 import org.springframework.hateoas.core.Relation;
 
-@Relation(value = ResumeRelationTypes.JOB, collectionRelation = ResumeRelationTypes.ITEMS)
-public class JobResource extends EmbeddedResourceSupport {
+@Relation(value = ResumeRelationTypes.EMPLOYMENT, collectionRelation = ResumeRelationTypes.ITEMS)
+public class EmploymentResource extends EmbeddedResourceSupport {
 
-    public static final URI PROFILE_URI = ProfileUtil.toProfileUri("job");
+    public static final URI PROFILE_URI = ProfileUtil.toProfileUri("employments");
 
     @JsonCreator
-    public JobResource() {
+    public EmploymentResource() {
         add(createProfileLink());
     }
 
