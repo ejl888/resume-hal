@@ -25,6 +25,7 @@ import static nl.my888.resume.hal.constants.ResumeRelationTypes.asCurriedRelatio
 import static nl.my888.resume.repository.people.PersonFixtures.createValidUser;
 import static nl.my888.resume.repository.people.PersonFixtures.persisted;
 import static nl.my888.springframework.test.web.servlet.halmatchers.RootResourceMatcher.rootResource;
+import static nl.my888.test.common.JSONUtils.fromJavaFriendlyJson;
 import static nl.my888.test.easymock.idgenerators.IdGenerators.longIdGenerator;
 import static org.easymock.EasyMock.anyObject;
 import static org.easymock.EasyMock.expect;
@@ -104,7 +105,7 @@ public class PersonResourceControllerTest extends MockMvcTest {
 
     @Test
     public void testPutExistingUser() throws Exception {
-        final String newPersonContent = "{ \"name\": {\"fullName\": \"M. van der Laan\" } }";
+        final String newPersonContent = "{ 'name': {'fullName': 'M. van der Laan' } }";
 
         Person givenPerson = persisted(createValidUser("ejl888"));
         expect(mockPersonService.findOneByUsername(givenPerson.getUsername()))
@@ -117,7 +118,7 @@ public class PersonResourceControllerTest extends MockMvcTest {
 
         perform(put("/people/users/ejl888")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(newPersonContent))
+                .content(fromJavaFriendlyJson(newPersonContent)))
                 .andExpect(rootResource()
                                 .havingSelfLink("/people/users/ejl888")
                                 .havingProfile(PersonResource.PROFILE_URI)
