@@ -29,7 +29,7 @@ import static nl.my888.resume.hal.constants.ProfileUtil.toProfileUri;
 import static org.springframework.hateoas.MediaTypes.HAL_JSON;
 
 @Configuration
-@ComponentScan("nl.my888.resume.hal")
+@ComponentScan("nl.my888.resume.hal.resources")
 @EnableWebMvc
 @EnableHypermediaSupport(type = EnableHypermediaSupport.HypermediaType.HAL)
 public class HalApiConfig extends WebMvcConfigurerAdapter {

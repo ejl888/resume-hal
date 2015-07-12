@@ -42,37 +42,31 @@ public class EmploymentResourceController {
     @RequestMapping(method = RequestMethod.POST, consumes = "application/vnd.nl.888ict.employment+json")
     public ResponseEntity<EmploymentResource> create(
             @RequestBody CreateEmploymentResource employmentResource) {
-        // TODO
-        // bepaal de employer obv (relatieve) href
-        // bepaal de employee ob link
 
         final Person employee = personService.getPerson(
                 extractEmployeeId(employmentResource.getEmployee().getHref()));
         final Organization employer = organizationService.getOrganization(
                 extractEmployerId(employmentResource.getEmployer().getHref()));
-        final Employment job = new Employment(employee, employer);
 
-        final Employment savedJob = employmentService.save(job);
+        final Employment savedEmployment = employmentService.save(new Employment(employee, employer));
 
-        return new ResponseEntity<>(employmentResourceAssembler.toResource(savedJob), HttpStatus.CREATED);
+        return new ResponseEntity<>(employmentResourceAssembler.toResource(savedEmployment), HttpStatus.CREATED);
     }
 
     private Long extractEmployerId(String href) {
-        final Matcher matcher = ORGANIZATION_PATTERN.matcher(href);
-        if (matcher.find()) {
-            return Long.parseLong(matcher.group(1));
-        }
-        return null;
+        return extractId(ORGANIZATION_PATTERN.matcher(href));
     }
 
     private Long extractEmployeeId(String href) {
-        final Matcher matcher = PERSON_PATTERN.matcher(href);
+        return extractId(PERSON_PATTERN.matcher(href));
+    }
+
+    private Long extractId(Matcher matcher) {
         if (matcher.find()) {
             return Long.parseLong(matcher.group(1));
         }
         return null;
     }
-
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public ResponseEntity<EmploymentResource> update(@PathVariable("id") Long id) {
