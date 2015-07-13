@@ -17,10 +17,14 @@ dependencies {
             'com.fasterxml.jackson.datatype:jackson-datatype-joda:2.4.1'
 
     compile 'nl.my888:spring-hateoas-extended:0.1.0-SNAPSHOT'
-
     compile 'com.thetransactioncompany:cors-filter:2.2.1'
 
-    testCompile 'nl.my888:hal-resource-matcher:0.1.0-SNAPSHOT'
+    // WebJars
+    compile 'org.webjars:angularjs:1.4.2',
+            'org.webjars:angular-ui-bootstrap:0.13.0'
 
+
+    // test dependencies
+    testCompile 'nl.my888:hal-resource-matcher:0.1.0-SNAPSHOT'
     testCompile project(path: ':resume-repository', configuration: 'tests')
 }

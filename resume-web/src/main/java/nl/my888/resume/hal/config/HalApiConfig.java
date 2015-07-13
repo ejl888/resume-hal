@@ -23,6 +23,7 @@ import org.springframework.hateoas.mvc.TypeConstrainedMappingJackson2HttpMessage
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import static nl.my888.resume.hal.constants.ProfileUtil.toProfileUri;
@@ -41,6 +42,14 @@ public class HalApiConfig extends WebMvcConfigurerAdapter {
     private static final CurieProvider CURIE_PROVIDER = new DefaultCurieProvider(
             RELATION_PREFIX,
             new UriTemplate("http://www.888ict.nl/rels/{rel}"));
+
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        super.addResourceHandlers(registry);
+//        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+    }
 
     @Bean
     public CurieProvider curieProvider() {
