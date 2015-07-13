@@ -1,8 +1,8 @@
 {
-  "name": "angular-seed",
+  "name": "resume-ng-client",
   "description": "A starter project for AngularJS",
   "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-seed",
+  "homepage": "https://github.com/ejl888/resume-hal",
   "license": "MIT",
   "private": true,
   "dependencies": {
@@ -10,6 +10,7 @@
     "angular-route": "~1.4.0",
     "angular-loader": "~1.4.0",
     "angular-mocks": "~1.4.0",
-    "html5-boilerplate": "~5.2.0"
+    "html5-boilerplate": "~5.2.0",
+    "angular-bootstrap": "~0.13.0"
   }
 }

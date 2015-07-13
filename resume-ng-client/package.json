@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "description": "A",
-  "repository": "https://github.com/resume-hal/resume-ng-client",
+  "repository": "https://github.com/ejl888/resume-hal",
   "license": "MIT",
   "devDependencies": {
     "bower": "^1.3.1",
