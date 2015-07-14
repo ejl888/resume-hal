@@ -1,11 +1,14 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
+  // Load grunt tasks automatically
+  require('load-grunt-tasks')(grunt);
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
   var params = {
     app: 'app',
+    test: 'test',
     e2etests: 'e2e-tests',
     build: 'build',
     coverage: 'build/coverage',
@@ -15,6 +18,7 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
+    params: params,
     pkg: grunt.file.readJSON('package.json'),
 
     // Watches files for changes and runs tasks based on the changed files
@@ -61,24 +65,24 @@ module.exports = function(grunt) {
       livereload: {
         options: {
           open: true,
-          middleware: function(connect) {
+          middleware: function (connect) {
             return [
               require('grunt-connect-proxy/lib/utils').proxyRequest,
-              connect.static('build/tmp'),
+              connect.static(params.tmp),
               connect().use('/bower_components', connect.static('./bower_components')),
-              connect.static(appConfig.app)];
+              connect.static(params.app)];
           }
         }
       },
       test: {
         options: {
           port: 9001,
-          middleware: function(connect) {
+          middleware: function (connect) {
             return [
               connect.static('build/tmp'),
               connect.static('test'),
               connect().use('/bower_components', connect.static('./bower_components')),
-              connect.static(appConfig.app)];
+              connect.static(params.app)];
           }
         }
       },
@@ -103,7 +107,7 @@ module.exports = function(grunt) {
       },
       test: {
         options: {
-          jshintrc: '.jshintrc.test'
+          jshintrc: 'test.jshintrc'
         },
         src: [
           '<%= params.app %>/**/*.spec.js',
@@ -339,9 +343,9 @@ module.exports = function(grunt) {
           archive: '<%= params.build %>/zip/<%= pkg.name %>-<%= pkg.version %>.zip'
         },
         files: [
-          { expand: true, cwd: '<%= params.dist %>', src: ['scripts/*'], ext: '-<%= pkg.version %>.js' },
-          { expand: true, cwd: '<%= params.dist %>', src: ['styles/*'], ext: '-<%= pkg.version %>.css' },
-          { expand: true, cwd: '<%= params.dist %>', src: ['fonts/*'] }
+          {expand: true, cwd: '<%= params.dist %>', src: ['scripts/*'], ext: '-<%= pkg.version %>.js'},
+          {expand: true, cwd: '<%= params.dist %>', src: ['styles/*'], ext: '-<%= pkg.version %>.css'},
+          {expand: true, cwd: '<%= params.dist %>', src: ['fonts/*']}
         ]
       }
     },
@@ -373,8 +377,7 @@ module.exports = function(grunt) {
         customattrs: [
           'msd-elastic'
         ],
-        customtags: [
-        ],
+        customtags: [],
         reportpath: 'build/html-angular-validate-report.json',
         tmplext: 'html'
       }
@@ -389,7 +392,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('validate', ['test', 'jshint', 'force:htmlangular']);
 
-  grunt.registerTask('serve', 'Compile then start a connect web server', function(target) {
+  grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
     }
@@ -414,10 +417,6 @@ module.exports = function(grunt) {
     'copy:lcov',
     'code-coverage-enforcer']);
 
-  // I expected that the ngtemplates task should be executed *before* the
-  // useminPrepare task, but pre-compilation of Angular templates
-  // only works if the ngtemplates task is executed *after* the
-  // useminPrepare task.
   grunt.registerTask('build', [
     'clean:build',
     'less',
