@@ -321,7 +321,7 @@ module.exports = function (grunt) {
       // name myApp, must match the top-level module name.
       myApp: {
         cwd: '<%= params.app %>',
-        src: '{,*/}{,*/}{,*/}*.html',
+        src: '*/{,*/}{,*/}*.html',
         dest: '<%= params.tmp %>/templates.js',
         options: {
           htmlmin: {
