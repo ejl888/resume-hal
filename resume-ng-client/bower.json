@@ -1,7 +1,7 @@
 {
   "name": "resume-ng-client",
-  "description": "A starter project for AngularJS",
-  "version": "0.0.0",
+  "description": "My Resume Angular Client",
+  "version": "0.1.0",
   "homepage": "https://github.com/ejl888/resume-hal",
   "license": "MIT",
   "private": true,
@@ -12,5 +12,6 @@
     "angular-mocks": "~1.4.0",
     "html5-boilerplate": "~5.2.0",
     "angular-bootstrap": "~0.13.0"
-  }
+  },
+  "appPath": "app"
 }

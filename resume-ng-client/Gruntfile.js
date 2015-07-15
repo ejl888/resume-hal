@@ -318,9 +318,10 @@ module.exports = function (grunt) {
     },
 
     ngtemplates: {
-      'resume-ng-client': {
+      // name myApp, must match the top-level module name.
+      myApp: {
         cwd: '<%= params.app %>',
-        src: 'components/{,*/}{,*/}{,*/}*.html',
+        src: '{,*/}{,*/}{,*/}*.html',
         dest: '<%= params.tmp %>/templates.js',
         options: {
           htmlmin: {
@@ -354,7 +355,7 @@ module.exports = function (grunt) {
       development: {
         options: {},
         files: {
-          'build/tmp/styles/main.css': 'app/styles/main.less'
+          'build/tmp/styles/app.css': 'app/styles/app.less'
         }
       }
     },
