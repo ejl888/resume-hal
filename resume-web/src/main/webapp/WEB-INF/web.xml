@@ -44,7 +44,7 @@
     </filter>
     <filter-mapping>
         <filter-name>requestContextFilter</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/api/*</url-pattern>
     </filter-mapping>
 
     <filter>
@@ -57,7 +57,7 @@
     </filter>
     <filter-mapping>
         <filter-name>charsetFilter</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/api/*</url-pattern>
     </filter-mapping>
 
     <!-- Gebruik corsFilter voor springSecurityFilterChain om OPTIONS requests af te vangen -->

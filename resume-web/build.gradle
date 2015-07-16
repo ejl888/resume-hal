@@ -1,6 +1,9 @@
 
 apply plugin: "war"
 
+war {
+    from '../resume-ng-client/build/dist'
+}
 
 dependencies {
     compile project(":resume-repository")
@@ -18,11 +21,6 @@ dependencies {
 
     compile 'nl.my888:spring-hateoas-extended:0.1.0-SNAPSHOT'
     compile 'com.thetransactioncompany:cors-filter:2.2.1'
-
-    // WebJars
-    compile 'org.webjars:angularjs:1.4.2',
-            'org.webjars:angular-ui-bootstrap:0.13.0'
-
 
     // test dependencies
     testCompile 'nl.my888:hal-resource-matcher:0.1.0-SNAPSHOT'
